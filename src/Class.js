@@ -1,4 +1,8 @@
-define('Oren/Class', ['require'], function(require) {
+var dependencies = [
+    'require'
+];
+
+define('Oyat/Class', dependencies, function(require) {
     var Class = function() {
         this.__construct.apply(this, arguments);
     };
