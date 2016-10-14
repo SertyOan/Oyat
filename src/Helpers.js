@@ -88,7 +88,7 @@ define('Oyat/Helpers', dependencies, function(require) {
                         string += format[i];
                         break
                     default:
-                        throw new Error('Invalid arguments for Oyat/Helpers.Date.format, format parameter is invalid');
+                        throw new Error('Invalid arguments (`format` is invalid in Oyat/Helpers.Date.format)');
                 }
             }
 

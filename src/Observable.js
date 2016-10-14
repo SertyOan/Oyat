@@ -14,7 +14,7 @@ define('Oyat/Observable', dependencies, function(require) {
         },
         on: function(event, callback) {
             if (!Helpers.isFunction(callback)) {
-                throw new Error('Invalid arguments in Oyat/Observable.on, callback parameter should be a function');
+                throw new Error('Invalid arguments (`callback` must be a function in Oyat/Observable.on)');
             }
 
             if (!this.listeners[event]) {
