@@ -14,16 +14,13 @@ define('Oyat/UI/Label', dependencies, function(require) {
             this.addType('oyat-label');
             this.setText(text);
         },
-        refresh: function() {
-            Helpers.Element.setText(this.elements.body, this.text);
-        },
         setText: function(text) {
             if(!Helpers.isString(text)) {
                 throw new Error('Invalid arguments (`text` must be a string in Oyat/UI/Label.setText)');
             }
 
             this.text = text;
-            this.refresh();
+            Helpers.Element.setText(this.elements.body, this.text);
         }
     });
 });

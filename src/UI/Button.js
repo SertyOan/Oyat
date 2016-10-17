@@ -35,9 +35,7 @@ define('Oyat/UI/Button', dependencies, function(require) {
         },
         setOptions: function(options) {
             this.__parent(options);
-            this.refresh();
-        },
-        refresh: function() {
+
             Helpers.Element.empty(this.elements.root);
 
             if (this.options.disabled) {
