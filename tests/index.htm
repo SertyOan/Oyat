@@ -1,0 +1,68 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../themes/BlueGrey/stylesheet.css" />
+<script type="text/javascript" src="require.js"></script>
+<script type="text/javascript">
+require.config({ paths: { Oyat: '../src' } });
+require(['Oyat/UI/Viewport'], function(Viewport) {
+	var viewport = new Viewport();
+
+	require(['Oyat/UI/View'], function(View) {
+		var view = viewport.add(new View());
+		view.setHTML('<h1>A simple view</h1>');
+	});
+
+	require(['Oyat/UI/Label'], function(Label) {
+		viewport.add(new Label('Test label'));
+	});
+
+	require(['Oyat/UI/FileField'], function(FileField) {
+		viewport.add(new FileField());
+	});
+
+	require(['Oyat/UI/TextField'], function(TextField) {
+		viewport.add(new TextField({ placeholder: 'type anything' }));
+	});
+
+	require(['Oyat/UI/ComboBox'], function(ComboBox) {
+		viewport.add(new ComboBox({ records: [{ value: 1, legend: 'One' }, {value: 2, legend: 'Two' }] }));
+	});
+
+	require(['Oyat/UI/Textarea'], function(Textarea) {
+		viewport.add(new Textarea());
+	});
+
+	require(['Oyat/UI/HBox', 'Oyat/UI/Label'], function(HBox, Label) {
+		var hbox = viewport.add(new HBox());
+		hbox.add(new Label('Label 1 (25%)'), { width: '25%' });
+		hbox.add(new Label('Label 2 (25%)'), { width: '25%' });
+	});
+/*
+	require(['Oyat/UI/GridView'], function(GridView) {
+		var view = new GridView({ showLineNumber: true, showPagination: true });
+
+		view.refresh({ rows: [
+			{ columns: [{ html: '<a href="javascript:;">test 1</a>', key: 'h' }] },
+			{ columns: [{html: '<a href="javascript:;">test 2</a>', key: 'h' }] },
+			{ columns: [{html: '<a href="javascript:;">test 3</a>', key: 'h' }] },
+			{ columns: [{html: '<a href="javascript:;">test 4</a>', key: 'h' }] },
+			{ columns: [{html: '<a href="javascript:;">test 5</a>', key: 'h' }] }
+		], rowsPerPage: 5, page: 3, count: 1000 })
+
+		view.on('RowSelect', function() {
+			console.log(arguments)
+		})
+
+		view.on('CellSelect', function() {
+			console.log(arguments)
+		})
+
+		viewport.add(view);
+	});
+*/
+});
+</script>
+</head>
+<body>
+</body>
+</html>

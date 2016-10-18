@@ -21,8 +21,8 @@ define('Oyat/UI/Textarea', dependencies, function(require) {
 
             this.setOptions(options);
 
-            this.addType('ojs-textarea');
-            this.elements.input = this.elements.root.appendChild(HElement.create('textarea', {
+            this.addType('oyat-textarea');
+            this.elements.input = this.elements.root.appendChild(Helpers.Element.create('textarea', {
                 rows: this.options.rows
             }));
 
@@ -62,7 +62,7 @@ define('Oyat/UI/Textarea', dependencies, function(require) {
         },
         focus: function() {
             if (!this.isRendered) {
-                throw new Error('cannot be called before render in OJS/UI/Textarea.focus');
+                throw new Error('cannot be called before render in Oyat/UI/Textarea.focus');
             }
 
             this.elements.input.focus();
