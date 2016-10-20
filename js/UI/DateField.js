@@ -72,15 +72,15 @@ define('Oyat/UI/DateField', dependencies, function(require) {
         hideCalendar: function(event) {
             var target = event.target;
 
-            while(target != this.calendar.elements.root) {
-                if(!target.parentNode) {
+            while (target != this.calendar.elements.root) {
+                if (!target.parentNode) {
                     break;
                 }
 
                 target = target.parentNode;
             }
 
-            if(target != this.calendar.elements.root) {
+            if (target != this.calendar.elements.root) {
                 this.calendar.hide();
                 document.body.removeEventListener('click', this.handlers.calendar);
             }

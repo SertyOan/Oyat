@@ -15,33 +15,55 @@ define('Oyat/UI/Calendar', dependencies, function(require) {
             this.selection = false;
             this.addType('oyat-calendar');
 
-            var node = this.elements.root.appendChild(Helpers.Element.create('div', { className: 'oyat-year' }));
-            node.appendChild(Helpers.Element.create('div', { className: 'oyat-previous', text: '<' }))
+            var node = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-year'
+            }));
+            node.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-previous',
+                    text: '<'
+                }))
                 .addEventListener('click', this.updateBy.bind(this, {
                     year: -1,
                     month: 0
                 }));
-            this.yearNode = node.appendChild(Helpers.Element.create('div', { className: 'oyat-text' }));
-            node.appendChild(Helpers.Element.create('div', { className: 'oyat-next', text: '>' }))
+            this.yearNode = node.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-text'
+            }));
+            node.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-next',
+                    text: '>'
+                }))
                 .addEventListener('click', this.updateBy.bind(this, {
                     year: 1,
                     month: 0
                 }));
 
-            var node = this.elements.root.appendChild(Helpers.Element.create('div', { className: 'oyat-month' }));
-            node.appendChild(Helpers.Element.create('div', { className: 'oyat-previous', text: '<' }))
+            var node = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-month'
+            }));
+            node.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-previous',
+                    text: '<'
+                }))
                 .addEventListener('click', this.updateBy.bind(this, {
                     year: 0,
                     month: -1
                 }));
-            this.monthNode = node.appendChild(Helpers.Element.create('div', { className: 'oyat-text' }));
-            node.appendChild(Helpers.Element.create('div', { className: 'oyat-next', text: '>' }))
+            this.monthNode = node.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-text'
+            }));
+            node.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-next',
+                    text: '>'
+                }))
                 .addEventListener('click', this.updateBy.bind(this, {
                     year: 0,
                     month: 1
                 }));
 
-            this.days = this.elements.root.appendChild(Helpers.Element.create('div', { className: 'oyat-days' }));
+            this.days = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-days'
+            }));
 
             var weekdays = [
                 'Sunday',
@@ -61,7 +83,9 @@ define('Oyat/UI/Calendar', dependencies, function(require) {
                     }));
             }
 
-            this.boxes = this.elements.root.appendChild(Helpers.Element.create('div', { className: 'oyat-boxes' }));
+            this.boxes = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-boxes'
+            }));
             this.updateTo(new Date().getFullYear(), new Date().getMonth());
         },
         updateBy: function(data) {
@@ -115,7 +139,10 @@ define('Oyat/UI/Calendar', dependencies, function(require) {
                             year: this.year
                         };
 
-                        var box = this.boxes.appendChild(Helpers.Element.create('div', { className: 'oyat-clickable', text: day.toString() }));
+                        var box = this.boxes.appendChild(Helpers.Element.create('div', {
+                            className: 'oyat-clickable',
+                            text: day.toString()
+                        }));
                         box.addEventListener('click', (function(box, selection) {
                             this.selection = selection;
                             this.updateTo(this.year, this.month);
@@ -128,7 +155,9 @@ define('Oyat/UI/Calendar', dependencies, function(require) {
 
                         day++;
                     } else {
-                        this.boxes.appendChild(Helpers.Element.create('div', { html: '&nbsp;' }));
+                        this.boxes.appendChild(Helpers.Element.create('div', {
+                            html: '&nbsp;'
+                        }));
                     }
                 }
             }

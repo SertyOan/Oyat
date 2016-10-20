@@ -5,7 +5,7 @@ var dependencies = [
 ];
 
 define('Oyat/UI/Label', dependencies, function(require) {
-        View = require('Oyat/UI/View'),
+    View = require('Oyat/UI/View'),
         Helpers = require('Oyat/Helpers');
 
     return View.extend({
@@ -15,7 +15,7 @@ define('Oyat/UI/Label', dependencies, function(require) {
             this.setText(text);
         },
         setText: function(text) {
-            if(!Helpers.isString(text)) {
+            if (!Helpers.isString(text)) {
                 throw new Error('Invalid arguments (`text` must be a string in Oyat/UI/Label.setText)');
             }
 

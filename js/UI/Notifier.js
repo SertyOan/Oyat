@@ -41,8 +41,8 @@ define('Oyat/UI/Notifier', dependencies, function(require) {
                 }.bind(this), timeout);
             } else {
                 element.appendChild(Helpers.Element.create('div', {
-                    className: 'oyat-close'
-                }))
+                        className: 'oyat-close'
+                    }))
                     .addEventListener('click', function() {
                         this.elements.body.removeChild(element);
                     }.bind(this));

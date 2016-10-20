@@ -37,10 +37,10 @@ define('Oyat/UI/ChoicesView', dependencies, function(require) {
         refresh: function() {
             this.elements.root.innerHTML = '';
 
-            for(var i = 0, c = this.options.choices.length; i < c; i++) {
+            for (var i = 0, c = this.options.choices.length; i < c; i++) {
                 var choice = this.options.choices[i];
 
-                switch(typeof choice) {
+                switch (typeof choice) {
                     case 'string':
                         var html = choice;
                         var value = choice;
@@ -53,23 +53,25 @@ define('Oyat/UI/ChoicesView', dependencies, function(require) {
                         throw new Error('Type error: choices should be objects or strings');
                 }
 
-                var element = this.elements.root.appendChild(Helpers.Element.create('div', { className: 'oyat-choice', html: html }));
+                var element = this.elements.root.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-choice',
+                    html: html
+                }));
                 element.addEventListener('click', function(clicked) {
-                    if(this.values.indexOf(clicked) === -1) {
-                        if(this.options.maxChoices !== 0 && this.values.length >= this.options.maxChoices) {
+                    if (this.values.indexOf(clicked) === -1) {
+                        if (this.options.maxChoices !== 0 && this.values.length >= this.options.maxChoices) {
                             this.values.splice(0, 1);
                         }
 
                         this.values.push(clicked);
-                    }
-                    else {
+                    } else {
                         this.values = HArray.without(this.values, clicked);
                     }
 
                     this.refresh();
                 }.bind(this, value));
 
-                if(this.values.indexOf(value) !== -1) {
+                if (this.values.indexOf(value) !== -1) {
                     Helpers.Element.addClassName(element, 'oyat-selected');
                 }
             }

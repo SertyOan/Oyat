@@ -4,7 +4,7 @@ var dependencies = [
     'Oyat/UI/View',
     'Oyat/Helpers'
 ]
-    
+
 define('Oyat/UI/Button', dependencies, function(require) {
     var Class = require('Oyat/Class'),
         View = require('Oyat/UI/View'),

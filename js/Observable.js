@@ -6,8 +6,8 @@ var dependencies = [
 
 define('Oyat/Observable', dependencies, function(require) {
     var Class = require('Oyat/Class')
-        Helpers = require('Oyat/Helpers');
-    
+    Helpers = require('Oyat/Helpers');
+
     return Class.extend({
         __construct: function() {
             this.listeners = {};
@@ -33,8 +33,7 @@ define('Oyat/Observable', dependencies, function(require) {
             if (this.listeners[event] && this.listeners[event][hash]) {
                 delete this.listeners[event][hash];
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         },

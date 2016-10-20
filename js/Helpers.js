@@ -176,7 +176,7 @@ define('Oyat/Helpers', dependencies, function(require) {
         }
     };
 
-    Helpers.Object =  {
+    Helpers.Object = {
         clone: function(anObject) {
             return JSON.parse(JSON.stringify(anObject));
         },

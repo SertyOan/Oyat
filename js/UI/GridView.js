@@ -211,7 +211,10 @@ define('Oyat/UI/GridView', dependencies, function(require) {
                 }));
 
                 if (this.options.columns[i].sortBy) {
-                    var sortNode = cell.appendChild(Helpers.Element.create('div', { className: 'oyat-sort', html: '&#8593;&#8595;' }));
+                    var sortNode = cell.appendChild(Helpers.Element.create('div', {
+                        className: 'oyat-sort',
+                        html: '&#8593;&#8595;'
+                    }));
                     sortNode.addEventListener('click', function(sortBy) {
                         this.exports.sortBy = sortBy;
                         this.reload();
@@ -222,7 +225,10 @@ define('Oyat/UI/GridView', dependencies, function(require) {
                     }
                 }
 
-                cell.appendChild(Helpers.Element.create('div', { className: 'oyat-wrapper', html: column.label ? Helpers.String.escapeHTML(column.label) : '&nbsp;' }));
+                cell.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-wrapper',
+                    html: column.label ? Helpers.String.escapeHTML(column.label) : '&nbsp;'
+                }));
             }
 
             this.elements.header.style.width = this.rowWidth + 'px';
