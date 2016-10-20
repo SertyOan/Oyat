@@ -29,7 +29,7 @@ define('Oyat/UI/View', dependencies, function(require) {
             this.children = [];
         },
         setOptions: function(options) {
-            this.options = Core.extend(this.options, options);
+            this.options = Helpers.Object.extend(this.options, options);
         },
         render: function() {
             if (this.isRendered) {
@@ -106,10 +106,10 @@ define('Oyat/UI/View', dependencies, function(require) {
             this.elements.root.visible() ? this.hide() : this.show();
         },
         setText: function(text) {
-            Helpers.Element.setText(his.elements.body, text);
+            Helpers.Element.setText(this.elements.body, text);
         },
         setHTML: function(html) {
-            Helpers.Element.setHTML(his.elements.body, html);
+            Helpers.Element.setHTML(this.elements.body, html);
         }
     });
 });
