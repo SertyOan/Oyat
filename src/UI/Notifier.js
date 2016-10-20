@@ -5,7 +5,7 @@ var dependencies = [
 ];
 
 define('Oyat/UI/Notifier', dependencies, function(require) {
-    var Helpers.Element = require('Oyat/Helpers'),
+    var Helpers = require('Oyat/Helpers'),
         View = require('Oyat/UI/View');
 
     return View.extend({
