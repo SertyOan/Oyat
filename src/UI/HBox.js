@@ -4,7 +4,7 @@ var dependencies = [
     'Oyat/Helpers'
 ]
 
-define('Oyat/UI/HBox', dependencies function(require) {
+define('Oyat/UI/HBox', dependencies, function(require) {
     var View = require('Oyat/UI/View'),
         Helpers = require('Oyat/Helpers');
 
