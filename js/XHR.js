@@ -78,11 +78,11 @@ define('Oyat/XHR', dependencies, function(require) {
                 }
             };
 
-            if (options.method === 'POST' && !headers['Content-Type']) { // TODO check case insensitive
-                headers['Content-type'] = this.options.contentType;
+            if (options.method === 'POST' && !options.headers['Content-Type']) { // TODO check case insensitive
+                options.headers['Content-type'] = this.options.contentType;
 
                 if(this.options.encoding) {
-                    headers['Content-type'] += '; charset=' + this.options.encoding;
+                    options.headers['Content-type'] += '; charset=' + this.options.encoding;
                 }
             }
 
