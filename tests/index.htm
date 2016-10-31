@@ -1,14 +1,36 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../themes/BlueGrey/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="../css/bluegrey/theme.css" />
 <script type="text/javascript" src="require.js"></script>
+</head>
+<body>
+<div id="target">Loading...</div>
 <script type="text/javascript">
-require.config({ paths: { Oyat: '../src' } });
-require(['Oyat/UI/Viewport'], function(Viewport) {
-	var viewport = new Viewport();
+require.config({ paths: { Oyat: '../js' } });
 
-	require(['Oyat/UI/View'], function(View) {
-		var view = viewport.add(new View());
+var dependencies = [
+    'require',
+    'Oyat/UI/Viewport',
+    'Oyat/UI/View',
+    'Oyat/UI/Label',
+];
+
+require(dependencies, function(require) {
+    var Viewport = require('Oyat/UI/Viewport'),
+        Label = require('Oyat/UI/Label'),
+        TextField = require('Oyat/UI/TextField');
+
+	var viewport = new Viewport(document.getElementById('target'));
+    viewport.clear();
+
+    viewport.add(new Label('Oyat/UI/Label'));
+    viewport.add(new Label('A label is just text'));
+
+    viewport.add(new Label('Oyat/UI/TextField'));
+    viewport.add(new TextField({ placeholder: 'type anything' }));
+
+    /*
+    var view = viewport.add(new View());
 		view.setHTML('<h1>A simple view</h1>');
 	});
 
@@ -19,6 +41,7 @@ require(['Oyat/UI/Viewport'], function(Viewport) {
 	require(['Oyat/UI/FileField'], function(FileField) {
 		viewport.add(new FileField());
 	});
+    */
 
 	require(['Oyat/UI/TextField'], function(TextField) {
 		viewport.add(new TextField({ placeholder: 'type anything' }));
@@ -62,7 +85,5 @@ require(['Oyat/UI/Viewport'], function(Viewport) {
 */
 });
 </script>
-</head>
-<body>
 </body>
 </html>
