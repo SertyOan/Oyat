@@ -24,6 +24,7 @@ define('Oyat/UI/Viewport', dependencies, function(require) {
             this.views.push(view);
             this.element.appendChild(view.elements.root);
             view.render();
+            return view;
         },
         remove: function(view) {
             this.views = Helpers.Array.without(this.views.without, view);
