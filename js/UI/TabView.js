@@ -30,7 +30,7 @@ define('Oyat/UI/TabView', dependencies, function(require) {
             }));
         },
         add: function(view, options) {
-            options = Core.extend({
+            options = Helpers.Object.extend({
                 id: false,
                 title: false,
                 closable: false
