@@ -651,17 +651,14 @@ INPUT.oyat-editorIconList:hover {
 }
 
 .oyat-link {
+    margin: 3px;
     height: 22px;
-    margin: 3px
-}
-
-.oyat-linkURL {
-    overflow: hidden;
     padding: 3px;
-    line-height: 12px
+    line-height: 12px;
+    overflow: hidden
 }
 
-.oyat-linkURL A {
+.oyat-link A {
     color: #5B7F95;
     font-weight: bold
 }
