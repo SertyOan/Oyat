@@ -1,6 +1,6 @@
 var dependencies = [
     'require',
-    'Oyat/UI/View'
+    'Oyat/UI/View',
     'Oyat/Helpers'
 ];
 

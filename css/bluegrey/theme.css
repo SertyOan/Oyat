@@ -1,0 +1,783 @@
+/*
+dark blue: rgb(66, 114, 139) / #42728b
+light blue: rgb(91, 157, 191) / #5b9dbf
+*/
+
+.oyat-viewport {
+    position: relative
+}
+
+.oyat-viewport * {
+    box-sizing: border-box;
+    border: 0 solid transparent;
+    margin: 0;
+    padding: 0;
+    font: 14px/1 Arial;
+    border-spacing: 0;
+    background: none;
+    color: rgb(0, 0, 0)
+}
+
+.oyat-customHTML SELECT,
+.oyat-customHTML INPUT,
+.oyat-customHTML TEXTAREA {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 3px;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255)
+}
+
+.oyat-customHTML INPUT {
+    height: auto;
+    line-height: 12px
+}
+
+.oyat-customHTML INPUT[type=button] {
+    background: lightgrey
+}
+
+.oyat-customHTML TH,
+.oyat-customHTML TD {
+    padding: 3px
+}
+
+#oyat-notifications {
+    position: fixed;
+    width: 300px;
+    right: 50%;
+    top: 0px;
+    padding-bottom: 10px
+}
+
+.oyat-notification {
+    overflow: hidden;
+    margin: 10px 0px 0px;
+    padding: 10px;
+    font-weight: bold;
+    background: rgb(0, 0, 0)
+}
+
+.oyat-notification .oyat-text {
+    float: left;
+    width: 260px;
+    color: rgb(255, 255, 255)
+}
+
+.oyat-notification .oyat-close {
+    float: right;
+    width: 11px;
+    height: 11px;
+    background: url(notificationClose.png) no-repeat 50% 50%;
+    cursor: pointer
+}
+
+.oyat-combobox {
+    height: 22px;
+    margin: 3px;
+    position: relative
+}
+
+.oyat-combobox .oyat-field {
+    overflow: auto;
+    height: 22px
+}
+
+.oyat-combobox .oyat-text {
+    overflow: hidden;
+    border: 1px solid rgb(66, 114, 139);
+    border-radius: 6px 0 0 0;
+    background: rgb(255, 255, 255);
+    height: 22px;
+    padding: 3px
+}
+
+.oyat-combobox .oyat-action {
+    float: right;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    border-radius: 0 0 6px 0;
+    background: rgb(66, 114, 139)
+}
+
+.oyat-combobox .oyat-action:hover {
+    background: rgb(91, 157, 191)
+}
+
+.oyat-combobox .oyat-dropdown {
+    position: absolute;
+    width: 100%;
+    border: 1px solid rgb(66, 114, 139);
+    border-radius: 0 6px 0 6px;
+    background: rgb(255, 255, 255);
+    z-index: 1000;
+    margin: -1px 0 0 0;
+    box-shadow: 0 1px 3px rgb(0, 0, 0)
+}
+
+.oyat-combobox .oyat-dropdown .oyat-row {
+    line-height: 12px;
+    padding: 3px
+}
+
+.oyat-combobox .oyat-dropdown .oyat-row:hover,
+.oyat-combobox .oyat-dropdown .oyat-row:active {
+    background: #86bdf0
+}
+
+.oyat-calendar {
+    width: 140px;
+    border: 1px solid black;
+    background: rgb(90, 90, 90)
+}
+
+.oyat-calendar .oyat-calendarTop,
+.oyat-calendar .oyat-calendarArrows,
+.oyat-calendar .oyat-calendarDays {
+    width: 140px;
+    height: 18px;
+    border-bottom: 1px solid black;
+    overflow: auto;
+    cursor: default
+}
+
+.oyat-calendar .oyat-calendarDays DIV {
+    text-align: center
+}
+
+.oyat-calendar .oyat-calendarTitle {
+    float: left;
+    width: 115px;
+    padding: 1px 2px 2px;
+    font-weight: bold;
+    height: 15px;
+    border-right: 1px solid black;
+    background: rgb(90, 90, 90);
+    color: rgb(255, 255, 255)
+}
+
+.oyat-calendar .oyat-calendarClose {
+    float: left;
+    width: 20px;
+    height: 18px;
+    cursor: pointer
+}
+
+.oyat-calendar .oyat-calendarClose:hover {
+    background: #707070
+}
+
+.oyat-calendar .oyat-calendarArrows DIV {
+    float: left;
+    width: 35px;
+    height: 18px;
+    text-align: center;
+    cursor: pointer
+}
+
+.oyat-calendar .oyat-calendarArrows DIV:hover {
+    background: #707070;
+    color: rgb(255, 255, 255)
+}
+
+.oyat-calendar .oyat-calendarDays DIV {
+    float: left;
+    width: 20px;
+    height: 18px;
+    overflow: hidden
+}
+
+.oyat-calendar .oyat-calendarBoxes {
+    width: 140px;
+    overflow: auto
+}
+
+.oyat-calendar .oyat-calendarBoxes DIV {
+    float: left;
+    width: 20px;
+    padding: 4px 0px;
+    height: 12px;
+    line-height: 12px;
+    text-align: center
+}
+
+.oyat-calendar .oyat-calendarBoxes DIV.oyat-calendarClickable:hover {
+    background: rgb(90, 90, 90);
+    color: rgb(255, 255, 255);
+    cursor: pointer
+}
+
+.oyat-checkBox {
+    overflow: auto;
+    height: 22px;
+    margin: 5px
+}
+
+.oyat-checkBoxLabel {
+    float: left;
+    height: 12px;
+    line-height: 12px;
+    padding: 4px;
+    margin: 1px
+}
+
+.oyat-checkBoxInput {
+    float: left;
+    overflow: hidden;
+    margin: 1px;
+    padding: 4px;
+    width: 12px;
+    height: 12px
+}
+
+.oyat-checkBoxInput INPUT {
+    border: 0px
+}
+
+.oyat-checkBoxText {
+    float: left;
+    overflow: hidden;
+    font-weight: bold;
+    height: 12px;
+    line-height: 12px;
+    padding: 4px;
+    margin: 1px
+}
+
+.oyat-dateField {
+    overflow: auto;
+    height: 22px;
+    margin: 5px
+}
+
+.oyat-dateFieldLabel {
+    float: left;
+    overflow: hidden;
+    font-weight: bold;
+    height: 12px;
+    line-height: 12px;
+    padding: 4px;
+    text-align: right;
+    margin: 1px
+}
+
+.oyat-dateFieldField {
+    overflow: auto;
+    height: 18px;
+    border: 1px solid rgb(90, 90, 90);
+    background: rgb(255, 255, 255);
+    margin: 1px
+}
+
+.oyat-dateFieldInput {
+    overflow: auto;
+    border: 0px;
+    height: 12px;
+    padding: 3px;
+    background: rgb(255, 255, 255) url(inputBg.png) repeat-x top
+}
+
+.oyat-dateFieldInput INPUT {
+    width: 100%;
+    height: 12px
+}
+
+.oyat-dateFieldButton {
+    float: right;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    border-left: 1px solid rgb(90, 90, 90);
+    background: rgb(90, 90, 90) url(calendar.gif) 1px 0px no-repeat
+}
+
+.oyat-editor {
+    width: 100%
+}
+
+.oyat-editorBody {
+    border: 1px solid rgb(90, 90, 90)
+}
+
+.oyat-editorToolbar {
+    border-bottom: 1px solid rgb(90, 90, 90);
+    background: #d5dadf
+}
+
+.oyat-editorContain {
+    padding: 3px
+}
+
+.oyat-editorStatus {
+    background: rgb(90, 90, 90);
+    height: 16px
+}
+
+.oyat-editorStatus SPAN {
+    color: rgb(255, 255, 255);
+    padding: 2px;
+    line-height: 12px;
+    font-size: 12px;
+    margin: 0px 10px 0px 0px
+}
+
+.oyat-editorStatus SPAN:hover {
+    background: rgb(255, 255, 255);
+    color: rgb(90, 90, 90);
+    cursor: pointer
+}
+
+INPUT.oyat-editorIcon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: none
+}
+
+INPUT.oyat-editorIcon:hover {
+    background: none
+}
+
+INPUT.oyat-editorIconTable,
+INPUT.oyat-editorIconTable:hover {
+    background: url(table.png) 50% 50% no-repeat
+}
+
+INPUT.oyat-editorIconUndo,
+INPUT.oyat-editorIconUndo:hover {
+    background: url(undo.png) 50% 50% no-repeat
+}
+
+INPUT.oyat-editorIconRedo,
+INPUT.oyat-editorIconRedo:hover {
+    background: url(redo.png) 50% 50% no-repeat
+}
+
+INPUT.oyat-editorIconList,
+INPUT.oyat-editorIconList:hover {
+    background: url(list.png) 50% 50% no-repeat
+}
+
+#oyat-editorContextMenu {
+    position: absolute;
+    z-index: 10;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(90, 90, 90);
+    overflow: hidden
+}
+
+#oyat-editorContextMenu A {
+    display: block;
+    color: rgb(90, 90, 90);
+    text-decoration: none;
+    padding: 3px 3px 3px 23px;
+    line-height: 12px;
+    font-size: 12px;
+    height: 12px
+}
+
+#oyat-editorContextMenu A:hover {
+    background: #EEEEEE;
+    text-decoration: underline
+}
+
+.oyat-gridview {
+    width: 100%
+}
+
+.oyat-gridview .oyat-body {
+    overflow: auto
+}
+
+.oyat-gridview .oyat-header,
+.oyat-gridview .oyat-row {
+    overflow: hidden
+}
+
+.oyat-gridview .oyat-row.oyat-odd {
+    background: #F3F3F3
+}
+
+.oyat-gridview .oyat-row.oyat-even {
+    background: #FAFAFA
+}
+
+.oyat-gridview .oyat-row:hover {
+    cursor: pointer;
+    background: #E0E0E0
+}
+
+.oyat-gridviewContent {
+    border: 1px solid rgb(90, 90, 90)
+}
+
+.oyat-gridviewTable {
+    width: 100%
+}
+
+.oyat-gridview .oyat-cell {
+    float: left
+}
+
+.oyat-gridview .oyat-header {
+    cursor: default
+}
+
+.oyat-gridview .oyat-header .oyat-cell .oyat-wrapper {
+    border-bottom: 1px solid rgb(90, 90, 90);
+    color: rgb(90, 90, 90);
+    text-align: left;
+    padding: 4px 4px 4px 13px
+}
+
+.oyat-gridview .oyat-cell .oyat-wrapper {
+    padding: 3px
+}
+
+.oyat-gridview>.oyat-toolbar {
+    height: 22px;
+    overflow: hidden;
+    background: #CDCDCD
+}
+
+.oyat-gridview>.oyat-toolbar .oyat-search {
+    float: left;
+    margin: 2px;
+    overflow: hidden;
+    border: 1px solid rgb(66, 114, 139);
+    background: rgb(255, 255, 255)
+}
+
+.oyat-gridview>.oyat-toolbar .oyat-search INPUT {
+    height: 16px;
+    line-height: 16px
+}
+
+.oyat-gridview>.oyat-toolbar .oyat-legend {
+    float: left;
+    padding: 5px
+}
+
+.oyat-gridview>.oyat-toolbar .oyat-pager {
+    height: 22px;
+    overflow: hidden
+}
+
+.oyat-gridview>.oyat-toolbar .oyat-pager .oyat-arrow {
+    float: left;
+    width: 12px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer
+}
+
+.oyat-gridview>.oyat-toolbar .oyat-pager .oyat-arrow:hover {
+    color: rgb(66, 114, 139)
+}
+
+.oyat-gridview>.oyat-toolbar .oyat-pager .oyat-page {
+    float: left;
+    margin: 5px
+}
+
+.oyat-panel {
+    background: rgb(255, 255, 255)
+}
+
+.oyat-panel .oyat-bar {
+    background: rgb(66, 114, 139);
+    height: 22px
+}
+
+.oyat-panel .oyat-title {
+    padding: 5px;
+    font-weight: bold;
+    color: rgb(255, 255, 255)
+}
+
+.oyat-panel .oyat-collapser {
+    float: right;
+    margin: 7px 4px;
+    width: 14px;
+    height: 8px;
+    background: url(collapser.png) no-repeat 50% 50%;
+    cursor: pointer
+}
+
+.oyat-panel .oyat-body {
+    overflow: hidden;
+    border: 1px solid rgb(66, 114, 139);
+    border-top: 0
+}
+
+.oyat-panel.oyat-collapsed .oyat-body {
+    display: none
+}
+
+.oyat-tabs {
+    overflow: auto;
+    padding: 3px 3px 0 0;
+    border-bottom: 3px solid rgb(66, 114, 139);
+    margin-bottom: 3px
+}
+
+.oyat-tab {
+    float: left;
+    margin: 0 0 3px 3px;
+    height: 30px;
+    background: #8B8B8B
+}
+
+.oyat-tab:hover {
+    background: rgb(91, 157, 191)
+}
+
+.oyat-tab.oyat-active,
+.oyat-tab.oyat-active:hover {
+    background: rgb(66, 114, 139)
+}
+
+.oyat-tab .oyat-title {
+    float: left;
+    color: rgb(255, 255, 255);
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer
+}
+
+.oyat-tab .oyat-close {
+    float: left;
+    background: url(tabClose.png) no-repeat 50% 50%;
+    height: 22px;
+    width: 22px;
+    cursor: pointer
+}
+
+.oyat-textarea {
+    margin: 3px;
+    border: 1px solid rgb(66, 114, 139);
+    background: rgb(255, 255, 255);
+    padding: 3px
+}
+
+.oyat-textarea TEXTAREA {
+    border: 0;
+    width: 100%;
+    resize: vertical
+}
+
+.oyat-textfield {
+    height: 22px;
+    margin: 3px;
+    overflow: hidden;
+    border: 1px solid rgb(66, 114, 139);
+    background: rgb(255, 255, 255);
+    border-radius: 6px 0
+}
+
+.oyat-textfield INPUT {
+    padding: 3px;
+    width: 100%;
+    height: 20px;
+    line-height: 14px
+}
+
+.oyat-filefield {
+    height: 22px;
+    margin: 3px
+}
+
+.oyat-filefield .oyat-browse {
+    position: relative;
+    height: 22px;
+    cursor: pointer
+}
+
+.oyat-filefield .oyat-browse INPUT {
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    width: 2000%;
+    z-index: 50
+}
+
+.oyat-filefield .oyat-cover,
+.oyat-filefield .oyat-status,
+.oyat-filefield .oyat-cancel,
+.oyat-filefield .oyat-submit {
+    float: left;
+    border: 1px solid rgb(66, 114, 139);
+    border-radius: 6px 0;
+    padding: 3px;
+    color: rgb(66, 114, 139)
+}
+
+.oyat-filefield .oyat-cancel,
+.oyat-filefield .oyat-submit {
+    float: right;
+    cursor: pointer;
+    border-left: 0
+}
+
+.oyat-label {
+    height: 22px;
+    margin: 3px;
+    overflow: hidden;
+    padding: 3px
+}
+
+.oyat-image {
+    margin: 5px
+}
+
+.oyat-imageLabel {
+    float: left;
+    overflow: hidden;
+    font-weight: bold;
+    height: 12px;
+    line-height: 12px;
+    padding: 5px;
+    text-align: right
+}
+
+.oyat-imagePic {
+    overflow: hidden;
+    padding: 5px
+}
+
+.oyat-link {
+    height: 22px;
+    margin: 3px
+}
+
+.oyat-linkURL {
+    overflow: hidden;
+    padding: 3px;
+    line-height: 12px
+}
+
+.oyat-linkURL A {
+    color: #5B7F95;
+    font-weight: bold
+}
+
+.oyat-button {
+    height: 22px;
+    margin: 3px;
+    cursor: pointer;
+    border: 1px solid rgb(66, 114, 139);
+    background: rgb(255, 255, 255);
+    padding: 3px;
+    border-radius: 6px 0
+}
+
+.oyat-button .oyat-text {
+    color: rgb(66, 114, 139);
+    font-weight: bold
+}
+
+.oyat-button:hover {
+    border: 1px solid rgb(91, 157, 191)
+}
+
+.oyat-button:hover .oyat-text {
+    color: rgb(91, 157, 191)
+}
+
+.oyat-button.oyat-disabled {
+    cursor: default;
+    border-color: #BBBBBB
+}
+
+.oyat-button.oyat-disabled .oyat-text {
+    color: #BBBBBB
+}
+
+.oyat-button.oyat-disabled:hover .oyat-text {
+    color: #BBBBBB
+}
+
+.oyat-treeview {
+    cursor: default
+}
+
+.oyat-treeNodeChildren {
+    padding: 0 0 0 20px
+}
+
+.oyat-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    opacity: 0.5;
+    background: lightgrey
+}
+
+.oyat-mask.oyat-hidden {
+    display: none
+}
+
+.oyat-window {
+    position: fixed
+}
+
+.oyat-window>.oyat-bar {
+    height: 24px;
+    z-index: inherit;
+    background: rgb(90, 90, 90)
+}
+
+.oyat-window>.oyat-bar .oyat-title {
+    float: left;
+    padding: 4px;
+    color: rgb(255, 255, 255);
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.oyat-window>.oyat-bar .oyat-buttons {
+    float: right;
+    height: 24px;
+    z-index: inherit
+}
+
+.oyat-window>.oyat-bar .oyat-close {
+    float: right;
+    cursor: pointer;
+    background: url(windowClose.png) no-repeat 50% 50%;
+    height: 20px;
+    width: 20px;
+    z-index: inherit
+}
+
+.oyat-window>.oyat-wrapper {}
+
+.oyat-window .oyat-body {
+    overflow: auto;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    z-index: inherit
+}
+
+.oyat-hbox {
+    display: inline-block;
+    width: 100%
+}
+
+.oyat-hbox>.oyat-cell.oyat-left {
+    float: left
+}
+
+.oyat-hbox>.oyat-cell.oyat-right {
+    float: right
+}
+
+.oyat-vbox {}
