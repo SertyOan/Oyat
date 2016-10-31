@@ -63,22 +63,22 @@ define('Oyat/Helpers', dependencies, function(require) {
             for (var i = 0; i < format.length; i++) {
                 switch (format[i]) {
                     case 'h':
-                        string += date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+                        string += aDate.getHours() < 10 ? '0' + aDate.getHours() : aDate.getHours();
                         break;
                     case 'i':
-                        string += date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                        string += aDate.getMinutes() < 10 ? '0' + aDate.getMinutes() : aDate.getMinutes();
                         break;
                     case 's':
-                        string += date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                        string += aDate.getSeconds() < 10 ? '0' + aDate.getSeconds() : aDate.getSeconds();
                         break;
                     case 'd':
-                        string += date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                        string += aDate.getDate() < 10 ? '0' + aDate.getDate() : aDate.getDate();
                         break;
                     case 'm':
-                        string += date.getMonth() < 9 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
+                        string += aDate.getMonth() < 9 ? '0' + (aDate.getMonth() + 1) : (aDate.getMonth() + 1);
                         break;
                     case 'y':
-                        string += date.getFullYear();
+                        string += aDate.getFullYear();
                         break;
                     case '/':
                     case ':':
@@ -158,7 +158,7 @@ define('Oyat/Helpers', dependencies, function(require) {
                         Helpers.Element.setText(anElement, attributes[i]);
                         break;
                     case 'style':
-                        Helpers.Element.anElement[i].cssText = attributes[i];
+                        anElement.cssText = attributes[i];
                         break;
                     default:
                         anElement[i] = attributes[i];
