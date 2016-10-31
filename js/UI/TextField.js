@@ -32,7 +32,7 @@ define('Oyat/UI/TextField', dependencies, function(require) {
             this.canHaveChildren = false;
             this.addType('oyat-textfield');
 
-            this.elements.input = this.elements.root.appendChild(HElement.create('input', {
+            this.elements.input = this.elements.root.appendChild(Helpers.Element.create('input', {
                 type: this.options.type
             }));
 
