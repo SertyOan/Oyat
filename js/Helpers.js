@@ -158,7 +158,7 @@ define('Oyat/Helpers', dependencies, function(require) {
                         Helpers.Element.setText(anElement, attributes[i]);
                         break;
                     case 'style':
-                        anElement.cssText = attributes[i];
+                        anElement.style.cssText = attributes[i];
                         break;
                     default:
                         anElement[i] = attributes[i];
