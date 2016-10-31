@@ -57,7 +57,7 @@ define('Oyat/UI/GridView', dependencies, function(require) {
             this.refresh();
         },
         refresh: function() {
-            Helpers.Element.empty(this.elements.root.innerHTML);
+            Helpers.Element.empty(this.elements.root);
 
             this.__updateToolbar();
             this.__updateBody();

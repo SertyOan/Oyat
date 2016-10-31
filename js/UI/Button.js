@@ -45,13 +45,13 @@ define('Oyat/UI/Button', dependencies, function(require) {
             }
 
             if (Helpers.isString(this.options.iconClass)) {
-                this.elements.root.appendChild(HElement.create('div', {
+                this.elements.root.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-icon ' + this.options.iconClass
                 }));
             }
 
             if (Helpers.isString(this.options.text)) {
-                var textNode = this.elements.root.appendChild(HElement.create('div', {
+                var textNode = this.elements.root.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-text',
                     html: this.options.text
                 }));
