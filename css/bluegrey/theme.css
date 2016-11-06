@@ -65,10 +65,11 @@ light blue: rgb(91, 157, 191) / #5b9dbf
 
 .oyat-notification .oyat-close {
     float: right;
-    width: 11px;
-    height: 11px;
-    background: url(notificationClose.png) no-repeat 50% 50%;
     cursor: pointer
+}
+
+.oyat-notification .oyat-close:before {
+    content: 'Close'
 }
 
 .oyat-combobox {
