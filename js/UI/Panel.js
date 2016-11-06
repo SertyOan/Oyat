@@ -29,7 +29,7 @@ define('Oyat/UI/Panel', dependencies, function(require) {
 
             this.setOptions(options);
         },
-        this.setOptions: function(options) {
+        setOptions: function(options) {
             this.__parent(options);
 
             Helpers.Element.empty(this.elements.bar);
