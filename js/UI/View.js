@@ -77,7 +77,7 @@ define('Oyat/UI/View', dependencies, function(require) {
                 view.isRendered = false;
             }
 
-            this.children = this.children.splice(index, 1);
+            return this.children.splice(index, 1);
         },
         clear: function() { // TODO ensure to call remove
             for (var i = 0, c = this.children.length; i < c; i++) {
