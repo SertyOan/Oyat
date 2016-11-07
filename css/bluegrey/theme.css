@@ -543,10 +543,14 @@ INPUT.oyat-editorIconList:hover {
 
 .oyat-tab .oyat-close {
     float: left;
-    background: url(tabClose.png) no-repeat 50% 50%;
     height: 22px;
     width: 22px;
     cursor: pointer
+}
+
+.oyat-tab .oyat-close:before {
+    content: 'X';
+    color: rgb(255, 255, 255)
 }
 
 .oyat-textarea {
