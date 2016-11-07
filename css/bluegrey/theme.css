@@ -41,14 +41,6 @@ light blue: rgb(91, 157, 191) / #5b9dbf
     padding: 3px
 }
 
-#oyat-notifications {
-    position: fixed;
-    width: 300px;
-    right: 50%;
-    top: 0px;
-    padding-bottom: 10px
-}
-
 .oyat-notification {
     overflow: hidden;
     margin: 10px 0px 0px;
@@ -58,8 +50,7 @@ light blue: rgb(91, 157, 191) / #5b9dbf
 }
 
 .oyat-notification .oyat-text {
-    float: left;
-    width: 260px;
+    display: inline-block;
     color: rgb(255, 255, 255)
 }
 
@@ -69,7 +60,8 @@ light blue: rgb(91, 157, 191) / #5b9dbf
 }
 
 .oyat-notification .oyat-close:before {
-    content: 'Close'
+    content: 'Close';
+    color: rgb(255, 255, 255)
 }
 
 .oyat-combobox {
@@ -275,7 +267,7 @@ light blue: rgb(91, 157, 191) / #5b9dbf
     border: 0px;
     height: 12px;
     padding: 3px;
-    background: rgb(255, 255, 255) url(inputBg.png) repeat-x top
+    background: rgb(255, 255, 255)
 }
 
 .oyat-dateFieldInput INPUT {
