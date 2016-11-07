@@ -65,7 +65,7 @@ define('Oyat/UI/ChoicesView', dependencies, function(require) {
 
                         this.values.push(clicked);
                     } else {
-                        this.values = HArray.without(this.values, clicked);
+                        this.values = Helpers.Array.without(this.values, clicked);
                     }
 
                     this.refresh();
