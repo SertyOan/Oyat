@@ -129,8 +129,8 @@ define('Oyat/XHR', dependencies, function(require) {
                     }
 
                     if (!!object.error) {
-                        // TODO check error structure (should have message and code)
-                        options.onException(object.error);
+                        // TODO check error structure (should have a code)
+                        options.onException({ message: object.error, raw: object });
                     }
                     else {
                         onSuccess(object.result);
