@@ -1,7 +1,12 @@
-define('OJS/UI/FileField', ['require', 'OJS/Class', 'OJS/UI/View', 'OJS/Helpers/Element'], function(require) {
-    var Class = require('OJS/Class'),
-        View = require('OJS/UI/View'),
-        HElement = require('OJS/Helpers/Element');
+var dependencies = [
+    'require',
+    'Oyat/UI/View',
+    'Oyat/Helpers'
+];
+
+define('Oyat/UI/FileField', dependencies, function(require) {
+    var View = require('Oyat/UI/View'),
+        Helpers = require('Oyat/Helpers');
 
     return View.extend({
         __construct: function(options) {
@@ -15,7 +20,7 @@ define('OJS/UI/FileField', ['require', 'OJS/Class', 'OJS/UI/View', 'OJS/Helpers/
 
             this.setOptions(options);
             this.withSubViews = false; // TODO
-            this.addType('ojs-filefield');
+            this.addType('oyat-filefield');
             this.uploads = [];
             this.refresh();
         },
@@ -24,7 +29,7 @@ define('OJS/UI/FileField', ['require', 'OJS/Class', 'OJS/UI/View', 'OJS/Helpers/
 
             var uploadID = Math.random().toString(36).slice(2);
 
-            var iframeNode = this.elements.root.appendChild(HElement.create('iframe', {
+            var iframeNode = this.elements.root.appendChild(Helpers.Element.create('iframe', {
                 src: 'javascript:;',
                 name: '__upload' + uploadID,
                 style: 'display:none'
@@ -32,62 +37,62 @@ define('OJS/UI/FileField', ['require', 'OJS/Class', 'OJS/UI/View', 'OJS/Helpers/
 
             iframeNode.addEventListener('load', uploadEnd.bind(this));
 
-            this.elements.status = this.elements.root.appendChild(HElement.create('div', {
-                className: 'ojs-status',
+            this.elements.status = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-status',
                 text: 'Uploading...'
             }));
-            HElement.hide(this.elements.status);
+            Helpers.Element.hide(this.elements.status);
 
-            this.elements.browse = this.elements.root.appendChild(HElement.create('div', {
-                className: 'ojs-browse'
+            this.elements.browse = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-browse'
             }));
-            this.elements.form = this.elements.browse.appendChild(HElement.create('form', {
+            this.elements.form = this.elements.browse.appendChild(Helpers.Element.create('form', {
                 action: this.options.uploadURL,
                 enctype: 'multipart/form-data',
                 method: 'POST',
                 target: '__upload' + uploadID
             }));
-            this.elements.input = this.elements.form.appendChild(HElement.create('input', {
+            this.elements.input = this.elements.form.appendChild(Helpers.Element.create('input', {
                 type: 'file',
                 name: uploadID
             }));
-            this.elements.cover = this.elements.browse.appendChild(HElement.create('div', {
-                className: 'ojs-cover',
+            this.elements.cover = this.elements.browse.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-cover',
                 text: this.options.text
             }));
 
             this.elements.input.addEventListener('change', (function() {
-                HElement.hide(this.elements.browse);
-                HElement.show(this.elements.submit);
-                HElement.show(this.elements.cancel);
-                HElement.setAttributes(this.elements.submit, {
+                Helpers.Element.hide(this.elements.browse);
+                Helpers.Element.show(this.elements.submit);
+                Helpers.Element.show(this.elements.cancel);
+                Helpers.Element.setAttributes(this.elements.submit, {
                     text: 'Upload ' + this.elements.input.value
                 });
             }).bind(this));
 
-            this.elements.submit = this.elements.root.appendChild(HElement.create('div', {
-                className: 'ojs-submit',
+            this.elements.submit = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-submit',
                 text: 'Upload'
             }));
             this.elements.submit.addEventListener('click', uploadStart.bind(this));
-            HElement.hide(this.elements.submit);
+            Helpers.Element.hide(this.elements.submit);
 
-            this.elements.cancel = this.elements.root.appendChild(HElement.create('div', {
-                className: 'ojs-cancel',
+            this.elements.cancel = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-cancel',
                 text: 'Cancel'
             }));
             this.elements.cancel.addEventListener('click', this.refresh.bind(this));
-            HElement.hide(this.elements.cancel);
+            Helpers.Element.hide(this.elements.cancel);
 
             if (this.options.multiple) {
                 // TODO display current files
             }
 
             function uploadStart() {
-                HElement.hide(this.elements.browse);
-                HElement.hide(this.elements.submit);
-                HElement.hide(this.elements.cancel);
-                HElement.show(this.elements.status);
+                Helpers.Element.hide(this.elements.browse);
+                Helpers.Element.hide(this.elements.submit);
+                Helpers.Element.hide(this.elements.cancel);
+                Helpers.Element.show(this.elements.status);
                 this.elements.form.submit();
             }
 
@@ -100,7 +105,7 @@ define('OJS/UI/FileField', ['require', 'OJS/Class', 'OJS/UI/View', 'OJS/Helpers/
                 if (this.options.multiple) {
                     this.refresh();
                 } else {
-                    HElement.setText(this.elements.status, 'Uploaded ' + this.elements.input.value);
+                    Helpers.Element.setText(this.elements.status, 'Uploaded ' + this.elements.input.value);
                 }
 
                 this.emit('FileUploaded', uploadID);
