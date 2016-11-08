@@ -1,34 +1,33 @@
 var dependencies = [
     'require',
-    'Oyat/Observable',
+    'Oyat/UI/View',
     'Oyat/Helpers'
 ];
 
 define('Oyat/UI/Window', dependencies, function(require) {
-    var Observable = require('Oyat/Observable'),
+    var View = require('Oyat/UI/View'),
         Helpers = require('Oyat/Helpers');
 
-    var zIndex = 0;
-    var mask = document.body.appendChild(Helpers.Element.create('div', {
-        className: 'oyat-mask oyat-hidden'
-    }));
+    var zIndex = 50;
 
-    return Observable.extend({
+    // TODO set zIndex on show instead of __construct
+    // TODO decrement zIndex on hide
+
+    return View.extend({
         __construct: function(options) {
             this.__parent();
-            this.children = [];
-            this.isRendered = false;
+
+            zIndex++;
 
             this.options = {
-                over: false,
                 closable: false,
                 modal: false,
                 draggable: false,
                 resizable: false,
                 autoCenter: true,
                 title: '',
-                top: '20px',
-                left: '20px',
+                top: '0',
+                left: '0',
                 width: 'auto',
                 height: 'auto'
             };
@@ -36,12 +35,39 @@ define('Oyat/UI/Window', dependencies, function(require) {
             this.setOptions(options);
 
             this.elements = {};
-            this.elements.root = Helpers.Element.create('div', {
-                className: 'oyat-window',
-                style: 'top:10px;left:10px'
-            });
 
-            this.elements.bar = this.elements.root.appendChild(Helpers.Element.create('div', {
+            if(this.options.modal) {
+                this.elements.root = Helpers.Element.create('div', {
+                    className: 'oyat-window-modal',
+                    style: 'z-index:' + zIndex
+                });
+
+                zIndex++;
+
+                this.elements.mask = this.elements.root.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-window-mask',
+                    style: 'z-index:' + zIndex
+                }));
+
+                zIndex++;
+
+                this.elements.window = this.elements.root.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-window',
+                    style: 'z-index:' + zIndex
+                }));
+            }
+            else {
+                this.elements.root = Helpers.Element.create('div', {
+                    className: 'oyat-window',
+                    style: 'z-index:' + zIndex
+                });
+                this.elements.window = this.elements.root;
+            }
+
+            this.elements.window.style.top = this.options.top;
+            this.elements.window.style.left = this.options.left;
+
+            this.elements.bar = this.elements.window.appendChild(Helpers.Element.create('div', {
                 className: 'oyat-bar'
             }));
 
@@ -57,14 +83,14 @@ define('Oyat/UI/Window', dependencies, function(require) {
                 this.elements.buttons.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-close'
                 }));
-                this.elements.buttons.addEventListener('click', this.close.bind(this));
+                this.elements.buttons.addEventListener('click', this.hide.bind(this));
             }
 
             if (this.options.draggable) {
                 // TODO
             }
 
-            this.elements.wrapper = this.elements.root.appendChild(Helpers.Element.create('div', {
+            this.elements.wrapper = this.elements.window.appendChild(Helpers.Element.create('div', {
                 className: 'oyat-wrapper'
             }));
 
@@ -74,95 +100,8 @@ define('Oyat/UI/Window', dependencies, function(require) {
             this.elements.body = this.elements.wrapper.appendChild(Helpers.Element.create('div', {
                 className: 'oyat-body'
             }));
-        },
-        setOptions: function(options) {
-            this.options = Helpers.Object.extend(this.options, options);
-        },
-        render: function() {
-            if (this.isRendered) {
-                throw new Error('Error: cannot render a window twice in Oyat/UI/Window.render()');
-            }
 
-            for (var i = 0, c = this.children.length; i < c; i++) {
-                this.elements.body.appendChild(this.children[i].elements.root);
-                this.children[i].render();
-            }
-
-            this.isRendered = true;
-            this.emit('Render');
-
-            if (this.options.autoCenter) {
-                // TODO
-                /*
-					 var deltaX = this.elements.root.getWidth() / 2;
-                var deltaY = this.elements.root.getHeight() / 2;
-                this.elements.root.setStyle({
-                    top: '50%',
-                    left: '50%',
-                    marginLeft: deltaX + 'px',
-                    marginTop: deltaY + 'px'
-                });
-					 */
-            } else {
-                Helpers.Element.setAttributes({
-                    style: 'top:' + this.options.top + ';left:' + this.options.left
-                });
-            }
-        },
-        add: function(view) {
-            view.parent = this;
-            this.children.push(view);
-
-            if (this.isRendered) {
-                this.elements.body.appendChild(view.elements.root);
-                view.render();
-            }
-
-            return view;
-        },
-        remove: function(view) { // TODO review
-            if (view.isRendered) {
-                this.elements.body.removeChild(view.elements.root);
-            }
-
-            this.children = HArray.without(this.children, component);
-        },
-        clear: function() { // TODO ensure to call remove
-            this.elements.body.innerHTML = '';
-            this.children = [];
-        },
-        open: function() { // TODO add a viewport as optionnal parameter and open in document.body if not specified
-            if (this.options.modal) {
-                zIndex++;
-                mask.style.zIndex = zIndex;
-                Helpers.Element.removeClassName(mask, 'oyat-hidden');
-            }
-
-            zIndex++;
-            document.body.appendChild(this.elements.root);
-            this.elements.root.style.zIndex = zIndex;
-            this.render();
-        },
-        close: function() {
-            zIndex--;
-
-            if (this.options.modal) {
-                zIndex--;
-                mask.style.zIndex = zIndex;
-
-                if (zIndex == 0) {
-                    Helpers.Element.addClassName(mask, 'oyat-hidden');
-                }
-            }
-
-            document.body.removeChild(this.elements.root);
-            this.emit('WindowClose');
-        },
-        setText: function(text) {
-            this.elements.body.innerHTML = Helpers.String.escapeHTML(text);
-        },
-        setHTML: function(html) {
-            this.elements.body.innerHTML = html;
+            this.elements.root.style.display = 'none';
         }
     });
 });

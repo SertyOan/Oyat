@@ -17,7 +17,6 @@ define('Oyat/UI/Image', dependencies, function(require) {
                 style: false
             };
 
-
             this.canHaveChildren = false;
             this.addType('oyat-image');
             this.setOptions(options);

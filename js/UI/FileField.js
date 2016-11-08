@@ -13,106 +13,45 @@ define('Oyat/UI/FileField', dependencies, function(require) {
             this.__parent();
 
             this.options = {
-                text: 'Browse',
-                uploadURL: false,
-                multiple: false
+                html: 'Choose file',
+                disabled: false
             };
 
             this.setOptions(options);
-            this.withSubViews = false; // TODO
+
+            this.canHaveChildren = false;
             this.addType('oyat-filefield');
-            this.uploads = [];
-            this.refresh();
+
+            this.elements.input = this.elements.root.appendChild(Helpers.Element.create('input', {
+                type: 'file'
+            }));
+
+            this.elements.input.addEventListener('change', function() {
+                this.emit('FileSelected', this.elements.input.files[0]);
+            }.bind(this));
+
+            this.elements.over = this.elements.root.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-over',
+                html: this.options.html
+            }));
+
+            if (this.options.disabled) {
+                this.elements.input.disabled = 'disabled';
+            }
         },
-        refresh: function() {
-            this.elements.root.innerHTML = '';
-
-            var uploadID = Math.random().toString(36).slice(2);
-
-            var iframeNode = this.elements.root.appendChild(Helpers.Element.create('iframe', {
-                src: 'javascript:;',
-                name: '__upload' + uploadID,
-                style: 'display:none'
-            }));
-
-            iframeNode.addEventListener('load', uploadEnd.bind(this));
-
-            this.elements.status = this.elements.root.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-status',
-                text: 'Uploading...'
-            }));
-            Helpers.Element.hide(this.elements.status);
-
-            this.elements.browse = this.elements.root.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-browse'
-            }));
-            this.elements.form = this.elements.browse.appendChild(Helpers.Element.create('form', {
-                action: this.options.uploadURL,
-                enctype: 'multipart/form-data',
-                method: 'POST',
-                target: '__upload' + uploadID
-            }));
-            this.elements.input = this.elements.form.appendChild(Helpers.Element.create('input', {
-                type: 'file',
-                name: uploadID
-            }));
-            this.elements.cover = this.elements.browse.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-cover',
-                text: this.options.text
-            }));
-
-            this.elements.input.addEventListener('change', (function() {
-                Helpers.Element.hide(this.elements.browse);
-                Helpers.Element.show(this.elements.submit);
-                Helpers.Element.show(this.elements.cancel);
-                Helpers.Element.setAttributes(this.elements.submit, {
-                    text: 'Upload ' + this.elements.input.value
-                });
-            }).bind(this));
-
-            this.elements.submit = this.elements.root.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-submit',
-                text: 'Upload'
-            }));
-            this.elements.submit.addEventListener('click', uploadStart.bind(this));
-            Helpers.Element.hide(this.elements.submit);
-
-            this.elements.cancel = this.elements.root.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-cancel',
-                text: 'Cancel'
-            }));
-            this.elements.cancel.addEventListener('click', this.refresh.bind(this));
-            Helpers.Element.hide(this.elements.cancel);
-
-            if (this.options.multiple) {
-                // TODO display current files
-            }
-
-            function uploadStart() {
-                Helpers.Element.hide(this.elements.browse);
-                Helpers.Element.hide(this.elements.submit);
-                Helpers.Element.hide(this.elements.cancel);
-                Helpers.Element.show(this.elements.status);
-                this.elements.form.submit();
-            }
-
-            function uploadEnd() {
-                this.uploads.push({
-                    uploadID: uploadID,
-                    filename: this.elements.input.value
-                });
-
-                if (this.options.multiple) {
-                    this.refresh();
-                } else {
-                    Helpers.Element.setText(this.elements.status, 'Uploaded ' + this.elements.input.value);
-                }
-
-                this.emit('FileUploaded', uploadID);
-            }
+        reset: function() {
+            this.elements.input.value = '';
         },
         getValue: function() {
-            return this.options.multiple ? this.uploads : this.uploads[0];
+            return this.elements.input.value;
+        },
+        enable: function() {
+            this.elements.input.disabled = false;
+        },
+        disable: function() {
+            this.elements.input.setAttributes({
+                disabled: 'disabled'
+            });
         }
     });
 });
