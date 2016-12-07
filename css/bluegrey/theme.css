@@ -1,7 +1,4 @@
-/*
-dark blue: rgb(0, 86, 134) / #42728b
-light blue: rgb(91, 157, 191) / #5b9dbf
-*/
+/*** Oyat/UI/Viewport ***/
 
 .oyat-viewport {
     position: relative
@@ -394,6 +391,8 @@ INPUT.oyat-editorIconList:hover {
     text-decoration: underline
 }
 
+/*** Oyat/UI/GridView ***/
+
 .oyat-gridview {
     width: 100%
 }
@@ -494,28 +493,39 @@ INPUT.oyat-editorIconList:hover {
     margin: 5px
 }
 
+/*** Oyat/UI/Panel ***/
+
 .oyat-panel {
     background: rgb(255, 255, 255)
 }
 
-.oyat-panel .oyat-bar {
-    background: rgb(0, 86, 134);
-    height: 22px
+.oyat-panel>.oyat-bar {
+    height: 30px;
+    background: rgb(0, 86, 134)
 }
 
-.oyat-panel .oyat-title {
+.oyat-panel>.oyat-bar>.oyat-title {
     padding: 5px;
+    line-height: 20px;
     font-weight: bold;
     color: rgb(255, 255, 255)
 }
 
 .oyat-panel .oyat-collapser {
     float: right;
-    margin: 7px 4px;
-    width: 14px;
-    height: 8px;
-    background: url(collapser.png) no-repeat 50% 50%;
+    line-height: 20px;
+    margin: 0 5px;
     cursor: pointer
+}
+
+.oyat-panel .oyat-collapser:before {
+    content: '\2227';
+    font-weight: bold;
+    color: rgb(255, 255, 255)
+}
+
+.oyat-panel.oyat-collapsed > .oyat-bar .oyat-collapser:before {
+    content: '\2228'
 }
 
 .oyat-panel .oyat-body {
@@ -527,6 +537,8 @@ INPUT.oyat-editorIconList:hover {
 .oyat-panel.oyat-collapsed .oyat-body {
     display: none
 }
+
+/*** Oyat/UI/TabView ***/
 
 .oyat-tabs {
     overflow: auto;
@@ -565,18 +577,24 @@ INPUT.oyat-editorIconList:hover {
     float: left
 }
 
+/*** Oyat/UI/Textarea ***/
+
 .oyat-textarea {
     margin: 3px;
     border: 1px solid rgb(0, 86, 134);
     background: rgb(255, 255, 255);
+    border-radius: 6px 0;
     padding: 3px
 }
 
 .oyat-textarea TEXTAREA {
+    border-radius: 6px 0;
     border: 0;
     width: 100%;
     resize: vertical
 }
+
+/*** Oyat/UI/TextField ***/
 
 .oyat-textfield {
     height: 22px;
@@ -593,6 +611,8 @@ INPUT.oyat-editorIconList:hover {
     height: 20px;
     line-height: 14px
 }
+
+/*** Oyat/UI/FileField ***/
 
 .oyat-filefield {
     position: relative;
@@ -625,6 +645,8 @@ INPUT.oyat-editorIconList:hover {
     padding: 3px
 }
 
+/*** Oyat/UI/Label ***/
+
 .oyat-label {
     height: 22px;
     margin: 3px;
@@ -635,6 +657,8 @@ INPUT.oyat-editorIconList:hover {
 .oyat-image {
     margin: 5px
 }
+
+/*** Oyat/UI/Link ***/
 
 .oyat-link {
     margin: 3px;
@@ -648,6 +672,8 @@ INPUT.oyat-editorIconList:hover {
     color: rgb(0, 86, 134);
     font-weight: bold
 }
+
+/*** Oyat/UI/Button ***/
 
 .oyat-button {
     height: 22px;
@@ -711,6 +737,8 @@ INPUT.oyat-editorIconList:hover {
     background: lightgrey
 }
 
+/*** Oyat/UI/Window ***/
+
 .oyat-window {
     position: absolute
 }
@@ -751,6 +779,8 @@ INPUT.oyat-editorIconList:hover {
     z-index: inherit
 }
 
+/*** Oyat/UI/HBox ***/
+
 .oyat-hbox {
     display: inline-block;
     width: 100%
@@ -764,7 +794,7 @@ INPUT.oyat-editorIconList:hover {
     float: right
 }
 
-.oyat-vbox {}
+/*** Oyat/UI/ChoicesView ***/
 
 .oyat-choices {
     font-size: 12px;

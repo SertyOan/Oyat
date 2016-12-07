@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
+
+<head>
+    <title>Samples - Using DSx UI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="J8S" />
+    <meta name="description" content="" />
+    <meta name="apiVersion" content="1.3" />
+    <meta name="debugMode" content="true" />
+    <link rel="stylesheet" type="text/css" href="https://mywidgetfactory/thirdparty/font-awesome-4.2.0/css/font-awesome.css" />
+    <widget:preferences>
+        <widget:preference name="theme" type="text" label="Theme" defaultValue="Blue" />
+    </widget:preferences>
+    <style type="text/css">
+        .modulecontent {
+            padding: 0
+        }
+        .dsx-label.section-title {
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 3px solid #000000
+        }
+    </style>
+    <script type="text/javascript">
+        //<![CDATA[
+
+        require.config({
+            paths: {
+                DSx: 'https://mywidgetfactory/resources/javascript/DSx'
+            }
+        });
+
+        widget.onLoad = function() {
+            widget.body.empty();
+
+            var dependencies = [
+                'require',
+                'DSx/Helpers/Element',
+                'DSx/UI/Viewport',
+                'DSx/UI/View',
+                'DSx/UI/Notifier',
+                'DSx/UI/Label',
+                'DSx/UI/TextField',
+                'DSx/UI/Textarea',
+                'DSx/UI/Button',
+                'DSx/UI/ChoicesView',
+                'DSx/UI/Link',
+                'DSx/UI/HBox',
+                'DSx/UI/GridView',
+                'DSx/UI/TabView',
+                'DSx/UI/WYSIWYGView',
+                'DSx/UI/AutoComplete',
+                'DSx/UI/Select',
+                'DSx/UI/DateField',
+                'DSx/UI/Calendar'
+            ];
+
+            // NOTE all DSx/UI elements must be added into a Viewport or into another DSx/UI element
+
+            require(dependencies, function(require) {
+                var HElement = require('DSx/Helpers/Element');
+                var theme = widget.getValue('theme');
+
+                if(!theme.match(/[a-z]+/i)) {
+                    theme = 'Blue';
+                }
+
+                widget.body.appendChild(HElement.create('link', { href: 'https://mywidgetfactory/resources/styles/DSxUI/' + theme + '.css', rel: 'stylesheet', type: 'text/css' }));
+                var wrapper = widget.body.appendChild(HElement.create('div'));
+
+                // NOTE Viewport
+                var Viewport = require('DSx/UI/Viewport');
+                var viewport = new Viewport(wrapper);
+                viewport.clear();
+
+                // NOTE Label
+                var Label = require('DSx/UI/Label');
+                viewport.add(new Label('DSx/UI/Label')).addType('section-title');
+                viewport.add(new Label('You can change the theme in the widget preferences'));
+
+                // NOTE View
+                viewport.add(new Label('DSx/UI/View')).addType('section-title');
+
+                var View = require('DSx/UI/View');
+                viewport.add(new View()).setText('a simple View');
+
+                // NOTE TextField
+                viewport.add(new Label('DSx/UI/TextField')).addType('section-title');
+
+                var TextField = require('DSx/UI/TextField');
+                viewport.add(new TextField({ placeholder: 'a TextField with a placeholder' }));
+                viewport.add(new TextField({ disabled: true, defaultValue: 'a disabled TextField' }));
+                viewport.add(new TextField({ type: 'password', defaultValue: 'password' }));
+                viewport.add(new TextField({ type: 'search' }));
+
+                // NOTE Textarea
+                viewport.add(new Label('DSx/UI/Textarea')).addType('section-title');
+
+                var Textarea = require('DSx/UI/Textarea');
+                viewport.add(new Textarea());
+
+                // NOTE Button
+                viewport.add(new Label('DSx/UI/Button')).addType('section-title');
+
+                var Button = require('DSx/UI/Button');
+                var button = viewport.add(new Button({
+                    text: 'Click me to disable me'
+                }));
+                button.on('Click', function() {
+                    button.setDisabled(true);
+                    notifier.success('Button disabled');
+                });
+
+                // NOTE DateField
+                viewport.add(new Label('DSx/UI/DateField')).addType('section-title');
+                var DateField = require('DSx/UI/DateField');
+                var field = viewport.add(new DateField());
+
+                // NOTE Calendar
+                viewport.add(new Label('DSx/UI/Calendar')).addType('section-title');
+                var Calendar = require('DSx/UI/Calendar');
+                var field = viewport.add(new Calendar());
+
+                // NOTE ChoicesView
+                viewport.add(new Label('DSx/UI/ChoicesView')).addType('section-title');
+
+                var ChoicesView = require('DSx/UI/ChoicesView');
+                viewport.add(new ChoicesView({
+                    choices: ['Choice 1', 'Choice 2', 'Choice 3']
+                }));
+
+                // NOTE Link
+                viewport.add(new Label('DSx/UI/Link')).addType('section-title');
+
+                var Link = require('DSx/UI/Link');
+                var link = viewport.add(new Link({
+                    text: 'notifier.warn()'
+                }));
+                link.on('Click', function() {
+                    notifier.warn('Notification text');
+                });
+                var link = viewport.add(new Link({
+                    text: 'notifier.error()'
+                }));
+                link.on('Click', function() {
+                    notifier.error('Notification text');
+                });
+
+                // NOTE Notifier
+                viewport.add(new Label('DSx/UI/Notifier')).addType('section-title');
+
+                var Notifier = require('DSx/UI/Notifier');
+                var notifier = viewport.add(new Notifier());
+
+                // NOTE HBox
+                viewport.add(new Label('DSx/UI/HBox')).addType('section-title');
+
+                var HBox = require('DSx/UI/HBox');
+                var hbox = viewport.add(new HBox());
+                hbox.add(new Label('50%'), {
+                    width: '50%'
+                });
+                hbox.add(new Label('25%'), {
+                    width: '25%'
+                });
+                hbox.add(new Label('12.5%'), {
+                    width: '12.5%'
+                });
+                hbox.add(new Label('12.5%'), {
+                    width: '12.5%'
+                });
+
+                // NOTE TabView
+                viewport.add(new Label('DSx/UI/TabView')).addType('section-title');
+
+                var TabView = require('DSx/UI/TabView');
+                var tabView = viewport.add(new TabView());
+                tabView.add(new View(), { id: 'tab1', title: 'tab 1' }).setText('content of tab 1');
+                tabView.add(new View(), { id: 'tab2', title: 'tab 2' }).setText('content of tab 2');
+                tabView.add(new View(), { id: 'tab3', title: 'tab 3', closable: true }).setText('content of tab 3');
+
+                // NOTE GridView
+                viewport.add(new Label('DSx/UI/GridView')).addType('section-title');
+
+                var GridView = require('DSx/UI/GridView');
+                var grid = viewport.add(new GridView({
+                    search: {
+                        value: ''
+                    },
+                    showLineNumber: true,
+                    itemsCount: ' records found',
+                    columns: [{
+                        label: 'First column',
+                        width: '25%',
+                        formatter: function(record) {
+                            return record.title;
+                        }
+                    }, {
+                        label: 'Second column',
+                        width: '75%',
+                        formatter: function(record) {
+                            return record.description;
+                        }
+                    }]
+                }));
+
+                grid.setStore([{
+                    title: 'title 1',
+                    description: 'description 1'
+                }, {
+                    title: 'title 2',
+                    description: 'description 2'
+                }]);
+
+                grid.on('Search', function(exports) {
+                    widget.log('Samples/DSxUI.htm: grid emitted Search');
+                    widget.log(exports);
+                });
+
+                grid.on('RowSelect', function(exports) {
+                    widget.log('Samples/DSxUI.htm: grid emitted RowSelect');
+                    widget.log(exports);
+                });
+
+                grid.on('CellSelect', function(exports) {
+                    widget.log('Samples/DSxUI.htm: grid emitted CellSelect');
+                    widget.log(exports);
+                });
+
+                // NOTE AutoComplete
+                viewport.add(new Label('DSx/UI/AutoComplete')).addType('section-title');
+
+                var AutoComplete = require('DSx/UI/AutoComplete');
+                var field = viewport.add(new AutoComplete({
+                    placeholder: 'search for someone',
+                    formatter: function(record) {
+                        return record.login;
+                    }
+                }));
+
+                field.on('Search', function(data) {
+                    require(['DSx/Helpers/3DDashboard'], function(H3DDashboard) {
+                        H3DDashboard.doRequest({ controller: 'Test', method: 'search', params: data.search }, function(employees) {
+                            field.setSuggestions(employees);
+                        });
+                    });
+                });
+
+                field.on('Select', function(data) {
+                    notifier.warn('Selected ' + data.selection.login);
+                    data.field.reset();
+                    data.field.blur();
+                });
+
+                // NOTE WYSIWYGView
+                viewport.add(new Label('DSx/UI/WYSIWYGView')).addType('section-title');
+
+                var WYSIWYGView = require('DSx/UI/WYSIWYGView');
+                viewport.add(new WYSIWYGView());
+
+                // NOTE Select
+                viewport.add(new Label('DSx/UI/Select')).addType('section-title');
+
+                var Select = require('DSx/UI/Select');
+                viewport.add(new Select());
+            });
+        };
+
+        //]]>
+    </script>
+</head>
+
+<body></body>
+
+</html>
