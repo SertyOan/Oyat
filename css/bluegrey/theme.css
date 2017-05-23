@@ -1,10 +1,6 @@
 /*** Oyat/UI/Viewport ***/
 
-.oyat-viewport {
-    position: relative
-}
-
-.oyat-viewport * {
+* {
     box-sizing: border-box;
     border: 0 solid transparent;
     margin: 0;
@@ -13,6 +9,10 @@
     border-spacing: 0;
     background: none;
     color: rgb(0, 0, 0)
+}
+
+.oyat-viewport {
+    position: relative
 }
 
 .oyat-customHTML SELECT,
@@ -664,7 +664,7 @@ INPUT.oyat-editorIconList:hover {
     margin: 3px;
     height: 22px;
     padding: 3px;
-    line-height: 12px;
+    line-height: 14px;
     overflow: hidden
 }
 
