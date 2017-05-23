@@ -97,8 +97,10 @@ define('Oyat/UI/ComboBox', dependencies, function(require) {
             }
         },
         expand: function(event) {
-            event.preventDefault();
-            event.stopPropagation();
+            if(event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
 
             document.body.addEventListener('click', this.collapseCallback);
 
