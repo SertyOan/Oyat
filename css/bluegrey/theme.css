@@ -648,10 +648,11 @@ INPUT.oyat-editorIconList:hover {
 /*** Oyat/UI/Label ***/
 
 .oyat-label {
-    height: 22px;
     margin: 3px;
-    overflow: hidden;
-    padding: 3px
+    height: 22px;
+    padding: 3px;
+    line-height: 16px;
+    overflow: hidden
 }
 
 .oyat-image {
@@ -664,7 +665,7 @@ INPUT.oyat-editorIconList:hover {
     margin: 3px;
     height: 22px;
     padding: 3px;
-    line-height: 14px;
+    line-height: 16px;
     overflow: hidden
 }
 
