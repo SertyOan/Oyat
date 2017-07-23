@@ -67,14 +67,20 @@ define('Oyat/UI/Window', dependencies, function(require) {
             this.elements.window.style.top = this.options.top;
             this.elements.window.style.left = this.options.left;
 
-            this.elements.bar = this.elements.window.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-bar'
-            }));
+            var hasTopBar = !!this.options.closable || !!this.options.title;
 
-            this.elements.title = this.elements.bar.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-title',
-                text: this.options.title
-            }));
+            if(hasTopBar) {
+                this.elements.bar = this.elements.window.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-bar'
+                }));
+            }
+
+            if(this.options.title) {
+                this.elements.title = this.elements.bar.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-title',
+                    text: this.options.title
+                }));
+            }
 
             if (this.options.closable) {
                 this.elements.buttons = this.elements.bar.appendChild(Helpers.Element.create('div', {
@@ -94,7 +100,7 @@ define('Oyat/UI/Window', dependencies, function(require) {
                 className: 'oyat-wrapper'
             }));
 
-            this.elements.wrapper.style.width = this.options.width;
+            this.elements.window.style.width = this.options.width;
             this.elements.wrapper.style.height = this.options.height;
 
             this.elements.body = this.elements.wrapper.appendChild(Helpers.Element.create('div', {
