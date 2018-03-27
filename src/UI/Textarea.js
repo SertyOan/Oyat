@@ -83,4 +83,4 @@ var Textarea = View.extend({
     }
 });
 
-module.exports = Textarea;
+export default Textarea;

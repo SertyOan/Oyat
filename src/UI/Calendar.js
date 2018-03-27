@@ -157,4 +157,4 @@ var Calendar = View.extend({
     }
 });
 
-module.exports = Calendar;
+export default Calendar;

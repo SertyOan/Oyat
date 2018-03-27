@@ -142,4 +142,4 @@ XHR.callJSONRPC = function(url, method, parameters, onSuccess, options) {
     });
 };
 
-module.exports = XHR;
+export default XHR;

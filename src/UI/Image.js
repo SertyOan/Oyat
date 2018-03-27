@@ -27,4 +27,4 @@ var Image = View.extend({
     }
 });
 
-module.exports = Image;
+export default Image;

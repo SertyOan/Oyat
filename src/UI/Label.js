@@ -17,4 +17,4 @@ var Label = View.extend({
     }
 });
 
-module.exports = Label;
+export default Label;

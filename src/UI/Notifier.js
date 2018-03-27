@@ -43,4 +43,4 @@ var Notifier = View.extend({
     }
 });
 
-module.exports = Notifier;
+export default Notifier;

@@ -48,4 +48,4 @@ var FileField = View.extend({
     }
 });
 
-module.exports = FileField;
+export default FileField;

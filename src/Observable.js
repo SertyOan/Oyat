@@ -43,4 +43,4 @@ var Observable = Class.extend({
     }
 });
 
-module.exports = Observable;
+export default Observable;

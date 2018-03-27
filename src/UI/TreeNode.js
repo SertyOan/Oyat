@@ -94,4 +94,4 @@ var TreeNode = View.extend({
     }
 });
 
-module.exports = TreeNode;
+export default TreeNode;

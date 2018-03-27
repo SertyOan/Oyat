@@ -50,4 +50,4 @@ var Button = View.extend({
     }
 });
 
-module.exports = Button;
+export default Button;

@@ -26,4 +26,4 @@ var EventBus = Observable.extend({
     }
 });
 
-module.exports = EventBus;
+export default EventBus;

@@ -376,4 +376,4 @@ var GridView = View.extend({
     }
 });
 
-module.exports = GridView;
+export default GridView;

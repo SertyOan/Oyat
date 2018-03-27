@@ -79,4 +79,4 @@ var TextField = View.extend({
     }
 });
 
-module.exports = TextField;
+export default TextField;

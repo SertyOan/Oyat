@@ -190,4 +190,4 @@ Helpers.String = {
     }
 };
 
-module.exports = Helpers;
+export default Helpers;

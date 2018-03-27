@@ -104,4 +104,4 @@ var View = Observable.extend({
     }
 });
 
-module.exports = View;
+export default View;

@@ -71,4 +71,4 @@ var ChoicesView = View.extend({
     }
 });
 
-module.exports = ChoicesView;
+export default ChoicesView;

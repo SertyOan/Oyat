@@ -81,4 +81,4 @@ var DateField = View.extend({
     }
 });
 
-module.exports = DateField;
+export default DateField;

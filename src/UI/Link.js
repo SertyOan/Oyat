@@ -32,4 +32,4 @@ var Link = View.extend({
     }
 });
 
-module.exports = Link;
+export default Link;

@@ -51,4 +51,4 @@ Class.extend = function(methods) {
     return extend(Class, methods);
 };
 
-module.exports = Class;
+export default Class;

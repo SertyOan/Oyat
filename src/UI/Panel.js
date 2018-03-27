@@ -49,4 +49,4 @@ var Panel = View.extend({
     }
 });
 
-module.exports = Panel;
+export default Panel;

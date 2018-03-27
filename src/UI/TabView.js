@@ -135,4 +135,4 @@ var TabView = View.extend({
     }
 });
 
-module.exports = TabView;
+export default TabView;

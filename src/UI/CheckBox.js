@@ -46,4 +46,4 @@ var CheckBox = View.extend({
     }
 });
 
-module.exports = CheckBox;
+export default CheckBox;

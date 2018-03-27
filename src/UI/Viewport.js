@@ -29,4 +29,4 @@ var Viewport = Observable.extend({
     }
 });
 
-module.exports = Viewport;
+export default Viewport;

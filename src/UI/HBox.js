@@ -34,4 +34,4 @@ var HBox = View.extend({
     }
 });
 
-module.exports = HBox;
+export default HBox;

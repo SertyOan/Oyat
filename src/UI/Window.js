@@ -104,4 +104,4 @@ var Window = View.extend({
     }
 });
 
-module.exports = Window;
+export default Window;

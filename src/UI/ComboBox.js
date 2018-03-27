@@ -146,4 +146,4 @@ var ComboBox = View.extend({
     }
 });
 
-module.exports = ComboBox;
+export default ComboBox;
