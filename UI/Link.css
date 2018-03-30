@@ -1,0 +1,12 @@
+.oyat-link {
+    margin: 3px;
+    height: 22px;
+    padding: 3px;
+    line-height: 16px;
+    overflow: hidden
+}
+
+.oyat-link A {
+    color: rgb(0, 86, 134);
+    font-weight: bold
+}

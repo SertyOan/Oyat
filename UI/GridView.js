@@ -1,5 +1,5 @@
-import View from './UI/View.js';
-import Helpers from './Helpers.js';
+import View from '../UI/View.js';
+import Helpers from '../Helpers.js';
 
 var GridView = View.extend({
     __construct: function(options) {
@@ -246,7 +246,7 @@ var GridView = View.extend({
                 var cellElement = rowElement.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-cell oyat-number',
                     style: 'width:40px',
-                    html: '<div class="oyat-wrapper">' + (this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1) + '</div>'
+                    html: '<div class="oyat-wrapper">' + (this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1) + '../div>'
                 }));
             }
 
@@ -260,7 +260,7 @@ var GridView = View.extend({
 
                 if (column.formatter) {
                     Helpers.Element.setAttributes(cellElement, {
-                        html: '<div class="oyat-wrapper">' + column.formatter(row) + '</div>'
+                        html: '<div class="oyat-wrapper">' + column.formatter(row) + '../div>'
                     });
                 } else if (column.widget) {
                     var instance = new column.widget(row, rowElement);

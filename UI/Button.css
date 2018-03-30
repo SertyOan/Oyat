@@ -1,0 +1,35 @@
+.oyat-button {
+    height: 22px;
+    margin: 3px;
+    cursor: pointer;
+    border: 1px solid rgb(0, 86, 134);
+    background: rgb(255, 255, 255);
+    padding: 3px;
+    border-radius: 6px 0
+}
+
+.oyat-button .oyat-text {
+    color: rgb(0, 86, 134);
+    font-weight: bold
+}
+
+.oyat-button:hover {
+    border: 1px solid rgb(91, 157, 191)
+}
+
+.oyat-button:hover .oyat-text {
+    color: rgb(91, 157, 191)
+}
+
+.oyat-button.oyat-disabled {
+    cursor: default;
+    border-color: #BBBBBB
+}
+
+.oyat-button.oyat-disabled .oyat-text {
+    color: #BBBBBB
+}
+
+.oyat-button.oyat-disabled:hover .oyat-text {
+    color: #BBBBBB
+}

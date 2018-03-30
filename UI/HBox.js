@@ -1,5 +1,5 @@
-import View from './UI/View.js';
-import Helpers from './Helpers.js';
+import View from '../UI/View.js';
+import Helpers from '../Helpers.js';
 
 var HBox = View.extend({
     __construct: function() {

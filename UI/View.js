@@ -1,5 +1,5 @@
-import Observable from './Observable.js';
-import Helpers from './Helpers.js';
+import Observable from '../Observable.js';
+import Helpers from '../Helpers.js';
 
 var View = Observable.extend({
     __construct: function() {
