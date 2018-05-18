@@ -1,5 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
+import '../UI/GridView.css';
 
 var GridView = View.extend({
     __construct: function(options) {
@@ -31,6 +32,11 @@ var GridView = View.extend({
 
         this.addType('oyat-gridview');
         this.rowWidth = 0;
+
+        window.addEventListener('resize', function() {
+            this.rowWidth = 0;
+            this.refresh();
+        }.bind(this));
     },
     setStore: function(rows, options) {
         // NOTE store = { rows: [row, row...], page: #, records: # }
@@ -246,8 +252,12 @@ var GridView = View.extend({
                 var cellElement = rowElement.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-cell oyat-number',
                     style: 'width:40px',
-                    html: '<div class="oyat-wrapper">' + (this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1) + '../div>'
+                    html: '<div class="oyat-wrapper">' + (this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1) + '</div>'
                 }));
+            }
+
+            if (this.options.rowStyler) {
+                Helpers.Element.addClassName(rowElement, this.options.rowStyler(row));
             }
 
             for (var j = 0, d = this.options.columns.length; j < d; j++) {
@@ -260,7 +270,7 @@ var GridView = View.extend({
 
                 if (column.formatter) {
                     Helpers.Element.setAttributes(cellElement, {
-                        html: '<div class="oyat-wrapper">' + column.formatter(row) + '../div>'
+                        html: '<div class="oyat-wrapper">' + column.formatter(row) + '</div>'
                     });
                 } else if (column.widget) {
                     var instance = new column.widget(row, rowElement);
@@ -283,96 +293,6 @@ var GridView = View.extend({
         }
 
         this.emit('Search', this.exports);
-    },
-    __paging: function() {
-        if (this.options.paging !== false) {
-
-            if (this.options.itemsCount) {
-                this.itemsCountLabel.setText(this.store.count + ' ' + this.options.itemsCount.legend);
-            }
-
-            this.updatePaging();
-            this.displayLines();
-        } else if (this.options.scrolling !== false) {
-            // TODO
-            this.displayLines();
-        } else {
-            if (this.options.itemsCount) {
-                this.itemsCountLabel.setText(this.store.count + ' ' + this.options.itemsCount.legend);
-            }
-
-            this.displayLines();
-        }
-    },
-    displayLines: function() {
-        this.displayedLines = [];
-
-        for (var i = -1, l = this.store.lines.size(); ++i < l;) {
-            var displayedLine = {
-                node: false,
-                record: this.store.lines[i],
-                widgets: []
-            };
-
-            var rowNode = this.rowsNode.appendChild(new Element('div').addClassName('osyGridRow ' + (i % 2 === 0 ? 'osyEven' : 'osyOdd')));
-            rowNode.observe('click', this.emit.bind(this, 'RowClick', {
-                row: i,
-                record: this.store.lines[i]
-            }));
-
-            if (this.options.linesNumber) {
-                rowNode.appendChild(new Element('div').addClassName('osyGridCell').update((this.options.offset + i + 1) + '.'));
-            }
-
-            for (var j = -1, c = this.options.columns.size(); ++j < c;) {
-                var cell = rowNode.appendChild(new Element('div').addClassName('osyGridCell'));
-
-                if (i % 2 === 0) {
-                    cell.addClassName('osyEven');
-                } else {
-                    cell.addClassName('osyOdd');
-                }
-
-                if (this.options.columns[j].style) {
-                    if (Object.isFunction(this.options.columns[j].style)) {
-                        cell.setStyle(this.options.columns[j].style(this.store.lines[i]));
-                    } else {
-                        cell.setStyle(this.options.columns[j].style);
-                    }
-                }
-
-                if (this.options.columns[j].cssClass) {
-                    if (Object.isFunction(this.options.columns[j].cssClass)) {
-                        cell.addClassName(this.options.columns[j].cssClass(this.store.lines[i]));
-                    } else {
-                        cell.addClassName(this.options.columns[j].cssClass);
-                    }
-                }
-
-                var widget = false;
-
-                if (this.options.columns[j].widget && Object.isFunction(this.options.columns[j].widget)) {
-                    widget = this.options.columns[j].widget(this.store.lines[i]);
-                }
-
-                if (widget !== false) {
-                    widget.render();
-                    widget.parent = this;
-                    this.children.push(widget);
-                    cell.appendChild(widget.node);
-                    displayedLine.widgets.push(widget);
-                } else {
-                    cell.update(this.fieldValue(this.store.lines[i], this.options.columns[j].field));
-                }
-
-                cell.observe('click', this.emit.bind(this, 'CellClick', {
-                    row: i,
-                    column: j
-                }));
-            }
-
-            this.displayedLines.push(displayedLine);
-        }
     }
 });
 

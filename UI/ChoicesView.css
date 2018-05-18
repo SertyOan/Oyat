@@ -1,0 +1,22 @@
+.oyat-choices {
+    font-size: 12px;
+    margin: 3px 0 0 3px
+}
+
+.oyat-choices .oyat-choice {
+    margin: 0 3px 3px 0;
+    padding: 3px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 16px;
+    border: 1px solid rgb(0, 86, 134);
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: rgb(0, 86, 134)
+}
+
+.oyat-choices .oyat-choice.oyat-selected {
+    background-color: rgb(0, 86, 134);
+    color: #FFFFFF
+}

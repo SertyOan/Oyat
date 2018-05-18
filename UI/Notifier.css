@@ -1,0 +1,17 @@
+.oyat-notification {
+    overflow: hidden;
+    margin: 10px 0px 0px;
+    font-weight: bold;
+    background: rgb(0, 0, 0)
+}
+
+.oyat-notification .oyat-text {
+    display: inline-block;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    word-break: break-all
+}
+
+.oyat-notification .oyat-close {
+    float: right
+}

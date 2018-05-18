@@ -1,5 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
+import './Link.css';
 
 var Link = View.extend({
     __construct: function(options) {

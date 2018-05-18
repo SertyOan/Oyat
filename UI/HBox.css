@@ -1,0 +1,12 @@
+.oyat-hbox {
+    display: inline-block;
+    width: 100%
+}
+
+.oyat-hbox>.oyat-cell.oyat-left {
+    float: left
+}
+
+.oyat-hbox>.oyat-cell.oyat-right {
+    float: right
+}

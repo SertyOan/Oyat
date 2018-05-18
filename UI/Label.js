@@ -1,6 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
-import style from './Label.css';
+import './Label.css';
 
 var Label = View.extend({
     __construct: function(text) {

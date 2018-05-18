@@ -48,6 +48,10 @@ XHR.callBasic = function(url, options) {
 
     var transport = new XMLHttpRequest();
 
+    if (options.withCredentials) {
+        transport.withCredentials = true;
+    }
+
     if (options.onCreate) {
         options.onCreate();
     }
@@ -114,7 +118,7 @@ XHR.callJSONRPC = function(url, method, parameters, onSuccess, options) {
             try {
                 var object = JSON.parse(transport.responseText);
 
-                if (!object || !('id' in object) || !('result' in object) || !('error' in object)) {
+                if (!object || !('id' in object) || (!('result' in object) && !('error' in object))) {
                     throw new Error('response is misformed'); // TODO harmonize
                 }
 
