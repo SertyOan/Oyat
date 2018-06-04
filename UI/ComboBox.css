@@ -1,0 +1,53 @@
+.oyat-combobox {
+    height: 22px;
+    margin: 3px;
+    position: relative
+}
+
+.oyat-combobox .oyat-field {
+    overflow: auto;
+    height: 22px
+}
+
+.oyat-combobox .oyat-text {
+    overflow: hidden;
+    border: 1px solid rgb(0, 86, 134);
+    border-radius: 6px 0 0 0;
+    background: rgb(255, 255, 255);
+    height: 22px;
+    padding: 3px
+}
+
+.oyat-combobox .oyat-action {
+    float: right;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    border-radius: 0 0 6px 0;
+    background: rgb(0, 86, 134)
+}
+
+.oyat-combobox .oyat-action:hover {
+    background: rgb(91, 157, 191)
+}
+
+.oyat-combobox .oyat-dropdown {
+    position: absolute;
+    width: 100%;
+    border: 1px solid rgb(0, 86, 134);
+    border-radius: 0 6px 0 6px;
+    background: rgb(255, 255, 255);
+    z-index: 1000;
+    margin: -1px 0 0 0;
+    box-shadow: 0 1px 3px rgb(0, 0, 0)
+}
+
+.oyat-combobox .oyat-dropdown .oyat-row {
+    line-height: 12px;
+    padding: 3px
+}
+
+.oyat-combobox .oyat-dropdown .oyat-row:hover,
+.oyat-combobox .oyat-dropdown .oyat-row:active {
+    background: #86bdf0
+}

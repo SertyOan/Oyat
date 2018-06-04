@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    border: 0 solid transparent;
+    margin: 0;
+    padding: 0;
+    font: 14px/1 Arial;
+    border-spacing: 0;
+    background: none;
+    color: rgb(0, 0, 0)
+}
+
+.oyat-viewport {
+    position: relative
+}
+
+.oyat-customHTML SELECT,
+.oyat-customHTML INPUT,
+.oyat-customHTML TEXTAREA {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 3px;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255)
+}
+
+.oyat-customHTML INPUT {
+    height: auto;
+    line-height: 12px
+}
+
+.oyat-customHTML INPUT[type=button] {
+    background: lightgrey
+}
+
+.oyat-customHTML TH,
+.oyat-customHTML TD {
+    padding: 3px
+}
+
+.oyat-close {
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    line-height: 16px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer
+}
+
+.oyat-close:hover {
+    box-shadow: 0 0 2px rgb(255, 255, 255)
+}
+
+.oyat-close:before {
+    content: '\2716';
+    color: rgb(255, 255, 255)
+}
+
+.oyat-close:hover:before {
+    text-shadow: 0 0 2px rgb(255, 255, 255)
+}

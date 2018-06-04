@@ -1,0 +1,36 @@
+.oyat-tabs {
+    overflow: auto;
+    padding: 3px 3px 0 0;
+    border-bottom: 3px solid rgb(0, 86, 134);
+    margin-bottom: 3px
+}
+
+.oyat-tab {
+    float: left;
+    margin: 0 0 3px 3px;
+    height: 30px;
+    background: #8B8B8B
+}
+
+.oyat-tab:hover {
+    background: rgb(91, 157, 191)
+}
+
+.oyat-tab.oyat-active,
+.oyat-tab.oyat-active:hover {
+    background: rgb(0, 86, 134)
+}
+
+.oyat-tab .oyat-title {
+    float: left;
+    color: rgb(255, 255, 255);
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer
+}
+
+.oyat-tab .oyat-close {
+    float: left
+}

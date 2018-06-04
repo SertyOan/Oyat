@@ -1,5 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
+import './Calendar.css';
 
 var Calendar = View.extend({
     __construct: function() {

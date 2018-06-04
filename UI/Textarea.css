@@ -1,0 +1,14 @@
+.oyat-textarea {
+    margin: 3px;
+    border: 1px solid rgb(0, 86, 134);
+    background: rgb(255, 255, 255);
+    border-radius: 6px 0;
+    padding: 3px
+}
+
+.oyat-textarea TEXTAREA {
+    border-radius: 6px 0;
+    border: 0;
+    width: 100%;
+    resize: vertical
+}

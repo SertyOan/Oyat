@@ -1,0 +1,28 @@
+.oyat-checkbox {
+    overflow: auto;
+    height: 22px;
+    margin: 5px
+}
+
+.oyat-checkbox .oyat-input {
+    float: left;
+    overflow: hidden;
+    margin: 1px;
+    padding: 4px;
+    width: 12px;
+    height: 12px
+}
+
+.oyat-checkbox INPUT {
+    border: 0px
+}
+
+.oyat-checkbox .oyat-text {
+    float: left;
+    overflow: hidden;
+    font-weight: bold;
+    height: 12px;
+    line-height: 12px;
+    padding: 4px;
+    margin: 1px
+}

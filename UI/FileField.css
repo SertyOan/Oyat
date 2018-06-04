@@ -1,0 +1,30 @@
+.oyat-filefield {
+    position: relative;
+    border: 1px solid rgb(0, 86, 134);
+    height: 22px;
+    margin: 3px;
+    border-radius: 6px 0;
+    overflow: hidden
+}
+
+.oyat-filefield INPUT {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    font-size: 200px;
+    cursor: pointer
+}
+
+.oyat-filefield .oyat-over {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 86, 134);
+    font-size: 12px;
+    text-align: center;
+    padding: 3px
+}

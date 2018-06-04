@@ -1,5 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
+import './FileField.css';
 
 var FileField = View.extend({
     __construct: function(options) {

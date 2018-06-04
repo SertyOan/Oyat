@@ -1,0 +1,35 @@
+.oyat-datefield {
+    overflow: auto;
+    height: 22px;
+    margin: 5px
+}
+
+.oyat-datefield .oyat-field {
+    overflow: auto;
+    height: 18px;
+    border: 1px solid rgb(90, 90, 90);
+    background: rgb(255, 255, 255);
+    margin: 1px
+}
+
+.oyat-datefield .oyat-input {
+    overflow: auto;
+    border: 0px;
+    height: 12px;
+    padding: 3px;
+    background: rgb(255, 255, 255)
+}
+
+.oyat-datefield .oyat-input INPUT {
+    width: 100%;
+    height: 12px
+}
+
+.oyat-datefield .oyat-button {
+    float: right;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    border-left: 1px solid rgb(90, 90, 90);
+    background: rgb(90, 90, 90) url(calendar.gif) 1px 0px no-repeat
+}

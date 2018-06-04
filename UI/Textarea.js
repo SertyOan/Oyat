@@ -1,5 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
+import './Textarea.css';
 
 var Textarea = View.extend({
     __construct: function(options) {

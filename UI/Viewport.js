@@ -1,5 +1,6 @@
 import Observable from '../Observable.js';
 import Helpers from '../Helpers.js';
+import './Viewport.css';
 
 var Viewport = Observable.extend({
     __construct: function(id) {

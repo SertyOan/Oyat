@@ -1,0 +1,42 @@
+.oyat-panel {
+    background: rgb(255, 255, 255)
+}
+
+.oyat-panel>.oyat-bar {
+    height: 30px;
+    background: rgb(0, 86, 134)
+}
+
+.oyat-panel>.oyat-bar>.oyat-title {
+    padding: 5px;
+    line-height: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255)
+}
+
+.oyat-panel .oyat-collapser {
+    float: right;
+    line-height: 20px;
+    margin: 0 5px;
+    cursor: pointer
+}
+
+.oyat-panel .oyat-collapser:before {
+    content: '\2227';
+    font-weight: bold;
+    color: rgb(255, 255, 255)
+}
+
+.oyat-panel.oyat-collapsed > .oyat-bar .oyat-collapser:before {
+    content: '\2228'
+}
+
+.oyat-panel .oyat-body {
+    overflow: hidden;
+    border: 1px solid rgb(0, 86, 134);
+    border-top: 0
+}
+
+.oyat-panel.oyat-collapsed .oyat-body {
+    display: none
+}
