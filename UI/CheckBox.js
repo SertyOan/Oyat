@@ -28,7 +28,6 @@ var CheckBox = View.extend({
 
         this.elements.input.addEventListener('click', function() {
             this.checked = !this.checked;
-            this.refresh();
             Helpers.Element.removeClassName(this.elements.input, 'oyat-checked');
 
             if(this.checked) {
