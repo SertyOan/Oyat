@@ -2,7 +2,7 @@ import Observable from '../Observable.js';
 import Helpers from '../Helpers.js';
 
 var View = Observable.extend({
-    __construct: function() {
+    __construct: function(options) {
         this.__parent();
 
         this.isRendered = false;
@@ -16,6 +16,10 @@ var View = Observable.extend({
         this.elements.root = Helpers.Element.create('div');
         this.elements.root.addEventListener('click', this.handlers.click);
         this.elements.body = this.elements.root;
+
+        if(options && options.hidden === true) {
+            Helpers.Element.hide(this.elements.root);
+        }
 
         this.children = [];
     },
