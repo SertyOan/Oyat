@@ -26,10 +26,10 @@ var CheckBox = View.extend({
 
         this.elements.input.addEventListener('click', function() {
             this.checked = !this.checked;
-            this.removeType('oyat-checked');
+            Helpers.Element.removeClassName(this.elements.input, 'oyat-checked');
 
             if(this.checked) {
-                this.addType('oyat-checked');
+                Helpers.Element.addClassName(this.elements.input, 'oyat-checked');
             }
 
             this.emit(this.checked ? 'Check' : 'Uncheck');
