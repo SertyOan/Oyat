@@ -15,6 +15,11 @@
     width: 16px
 }
 
+.oyat-checkbox .oyat-input.oyat-checked {
+    background: rgb(0, 86, 134);
+    background-image: radial-gradient(circle, rgb(0, 86, 134), rgb(0, 86, 134) 50%, rgb(255, 255, 255) 60%)
+}
+
 .oyat-checkbox .oyat-text {
     line-height: 16px
 }
