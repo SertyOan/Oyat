@@ -47,21 +47,32 @@ var TextField = View.extend({
                 value: this.elements.input.value,
                 key: event.keyCode
             });
-        }.bind(this))
+        }.bind(this));
+
+        var keyUpTimeout = false;
 
         this.elements.input.addEventListener('keyup', function(event) {
             this.emit('KeyUp', {
                 value: this.elements.input.value,
                 key: event.keyCode
             });
-        }.bind(this))
+
+            window.clearTimeout(keyUpTimeout);
+
+            keyUpTimeout = window.setTimeout(function() {
+                this.emit('DelayedKeyUp', {
+                    value: this.elements.input.value,
+                    key: event.keyCode
+                });
+            }.bind(this), 250); // TODO make the delay configurable ?
+        }.bind(this));
 
         this.elements.input.addEventListener('keypress', function(event) {
             this.emit('KeyPress', {
                 value: this.elements.input.value,
                 key: event.keyCode
             });
-        }.bind(this))
+        }.bind(this));
     },
     getValue: function() {
         return this.elements.input.value;
