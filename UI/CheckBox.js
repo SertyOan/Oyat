@@ -15,17 +15,20 @@ var CheckBox = View.extend({
     },
     setOptions: function(options) {
         this.__parent(options);
-
         this.checked = this.options.defaultChecked === true;
-
         Helpers.Element.empty(this.elements.root);
 
         this.elements.input = this.elements.body.appendChild(Helpers.Element.create('div', {
             className: 'oyat-input'
         }));
 
+        if(this.checked) {
+            Helpers.Element.addClassName(this.elements.input, 'oyat-checked');
+        }
+
         this.elements.input.addEventListener('click', function() {
             this.checked = !this.checked;
+            this.refresh();
             Helpers.Element.removeClassName(this.elements.input, 'oyat-checked');
 
             if(this.checked) {
