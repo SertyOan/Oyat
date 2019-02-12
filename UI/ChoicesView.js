@@ -63,6 +63,7 @@ var ChoicesView = View.extend({
                 }
 
                 this.refresh();
+                this.emit('Change');
             }.bind(this, value));
 
             if (this.values.indexOf(value) !== -1) {
