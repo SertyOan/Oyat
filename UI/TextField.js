@@ -45,7 +45,8 @@ var TextField = View.extend({
         this.elements.input.addEventListener('keydown', function(event) {
             this.emit('KeyDown', {
                 value: this.elements.input.value,
-                key: event.keyCode
+                key: event.keyCode,
+                browserEvent: event
             });
         }.bind(this));
 
@@ -54,7 +55,8 @@ var TextField = View.extend({
         this.elements.input.addEventListener('keyup', function(event) {
             this.emit('KeyUp', {
                 value: this.elements.input.value,
-                key: event.keyCode
+                key: event.keyCode,
+                browserEvent: event
             });
 
             window.clearTimeout(keyUpTimeout);
@@ -62,7 +64,8 @@ var TextField = View.extend({
             keyUpTimeout = window.setTimeout(function() {
                 this.emit('DelayedKeyUp', {
                     value: this.elements.input.value,
-                    key: event.keyCode
+                    key: event.keyCode,
+                    browserEvent: event
                 });
             }.bind(this), 250); // TODO make the delay configurable ?
         }.bind(this));
@@ -70,7 +73,8 @@ var TextField = View.extend({
         this.elements.input.addEventListener('keypress', function(event) {
             this.emit('KeyPress', {
                 value: this.elements.input.value,
-                key: event.keyCode
+                key: event.keyCode,
+                browserEvent: event
             });
         }.bind(this));
     },
