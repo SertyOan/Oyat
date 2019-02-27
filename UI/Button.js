@@ -18,7 +18,9 @@ var Button = View.extend({
         this.elements.root.removeEventListener('click', this.handlers.click);
         this.handlers.click = function(event) {
             if (!this.options.disabled) {
-                this.emit('Click', event);
+                this.emit('Click', {
+                    browserEvent: event
+                });
             }
         }.bind(this);
         this.elements.root.addEventListener('click', this.handlers.click);
