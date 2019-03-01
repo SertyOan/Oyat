@@ -16,7 +16,7 @@ var GridView = View.extend({
             showLineNumber: false, // OR true
             showPagination: false,
             hideHeaders: false, // OR true
-            columns: [], // each is { label: ?, field: ?, style: ?, widget: ? }
+            columns: [], // each is { label: ?, field: ?, style: ?, view: ? }
             sort: {
                 by: null,
                 order: 'ASC'
@@ -272,9 +272,9 @@ var GridView = View.extend({
                     Helpers.Element.setAttributes(cellElement, {
                         html: '<div class="oyat-wrapper">' + column.formatter(row) + '</div>'
                     });
-                } else if (column.widget) {
-                    var instance = new column.widget(row, rowElement);
-                    cellElement.appendChild(instance.elements.root);
+                } else if (column.view) {
+                    var subView = column.view(row);
+                    cellElement.appendChild(subView.elements.root);
                 }
 
                 cellElement.addEventListener('click', this.emit.bind(this, 'CellSelect', {
