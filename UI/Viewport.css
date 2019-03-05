@@ -1,11 +1,10 @@
-* {
+.oyat-viewport * {
     box-sizing: border-box;
     border: 0 solid transparent;
     margin: 0;
     padding: 0;
     border-spacing: 0;
-    background: none;
-    color: rgb(0, 0, 0)
+    background: none
 }
 
 .oyat-viewport {
