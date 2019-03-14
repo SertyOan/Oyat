@@ -109,7 +109,7 @@ var ComboBox = View.extend({
                 var legend = Helpers.isFunction(this.options.legendKey) ? this.options.legendKey(this.options.records[i]) : this.options.records[i][this.options.legendKey];
                 var row = rows.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-row',
-                    text: legend
+                    html: legend
                 })); // TODO find a way to secure HTML
                 row.addEventListener('click', function(index, event) {
                     event.preventDefault()
