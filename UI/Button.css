@@ -10,7 +10,9 @@
 
 .oyat-button .oyat-text {
     color: rgb(0, 86, 134);
-    font-weight: bold
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center
 }
 
 .oyat-button:hover {
