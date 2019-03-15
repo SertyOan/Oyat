@@ -4,7 +4,7 @@
 
 .oyat-panel>.oyat-bar {
     height: 30px;
-    background: rgb(0, 86, 134)
+    background: rgb(0, 83, 134)
 }
 
 .oyat-panel>.oyat-bar>.oyat-title {
@@ -33,7 +33,7 @@
 
 .oyat-panel .oyat-body {
     overflow: hidden;
-    border: 1px solid rgb(0, 86, 134);
+    border: 1px solid rgb(0, 83, 134);
     border-top: 0
 }
 

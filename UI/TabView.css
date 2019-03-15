@@ -1,7 +1,7 @@
 .oyat-tabs {
     overflow: auto;
     padding: 3px 3px 0 0;
-    border-bottom: 3px solid rgb(0, 86, 134);
+    border-bottom: 3px solid rgb(0, 83, 134);
     margin-bottom: 3px
 }
 
@@ -18,7 +18,7 @@
 
 .oyat-tab.oyat-active,
 .oyat-tab.oyat-active:hover {
-    background: rgb(0, 86, 134)
+    background: rgb(0, 83, 134)
 }
 
 .oyat-tab .oyat-title {
