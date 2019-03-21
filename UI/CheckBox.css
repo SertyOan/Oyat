@@ -2,7 +2,8 @@
     position: relative;
     overflow: auto;
     padding: 3px 3px 3px 22px;
-    margin: 3px
+    margin: 3px;
+    height: 22px
 }
 
 .oyat-checkbox .oyat-input {
