@@ -97,9 +97,6 @@ var View = Observable.extend({
         Helpers.Element.hide(this.elements.root);
         this.emit('Hide');
     },
-    toggle: function() {
-        this.elements.root.visible() ? this.hide() : this.show();
-    },
     setText: function(text) {
         Helpers.Element.setText(this.elements.body, text);
     },
