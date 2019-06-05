@@ -52,38 +52,41 @@
 }
 
 .oyat-gridview>.oyat-toolbar {
-    height: 22px;
+    height: 30px;
     overflow: hidden;
     background: #CDCDCD
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-search {
     float: left;
-    margin: 2px;
+    margin: 3px;
+    padding: 3px;
+    height: 24px;
     overflow: hidden;
     border: 1px solid rgb(0, 83, 134);
     background: rgb(255, 255, 255)
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-search INPUT {
-    height: 16px;
-    line-height: 16px
+    height: 18px;
+    line-height: 18px
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-legend {
     float: left;
-    padding: 5px
+    margin: 3px;
+    padding: 3px
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager {
-    height: 22px;
+    height: 24px;
     overflow: hidden
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager .oyat-arrow {
     float: left;
     width: 12px;
-    margin: 5px;
+    margin: 3px;
     text-align: center;
     font-weight: bold;
     cursor: pointer
