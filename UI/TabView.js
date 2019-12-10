@@ -66,6 +66,14 @@ var TabView = View.extend({
 
         return this.__parent(view);
     },
+    clear: function() {
+        this.__parent();
+        this.tabs = {};
+        this.history = [];
+        this.titles = {};
+        this.index = [];
+        this.activeTab = null;
+    },
     remove: function(view) {
         var id = false;
 
