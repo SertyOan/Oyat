@@ -108,6 +108,7 @@ XHR.callJSONRPC = function(url, method, parameters, onSuccess, options) {
 
     XHR.callBasic(url, {
         method: 'POST',
+        withCredentials: options.withCredentials,
         onException: options.onException,
         postBody: JSON.stringify({
             id: id,
