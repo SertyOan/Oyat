@@ -8,6 +8,7 @@ var TextField = View.extend({
         this.options = {
             defaultValue: '',
             placeholder: '',
+            autocomplete: null,
             type: 'text',
             size: false
         };
@@ -29,6 +30,10 @@ var TextField = View.extend({
         this.elements.input = this.elements.root.appendChild(Helpers.Element.create('input', {
             type: this.options.type
         }));
+
+        if (this.options.autocomplete) {
+            this.elements.input.autocomplete = this.options.autocomplete;
+        }
 
         if (this.options.defaultValue !== false) {
             this.elements.input.value = this.options.defaultValue;
