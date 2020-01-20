@@ -8,6 +8,7 @@ var CheckBox = View.extend({
         this.checked = false;
         this.options = {
             text: false,
+            disabled: false,
             defaultChecked: false
         };
         this.addType('oyat-checkbox');
@@ -24,6 +25,10 @@ var CheckBox = View.extend({
 
         if(this.checked) {
             Helpers.Element.addClassName(this.elements.input, 'oyat-checked');
+        }
+
+        if (this.options.disabled) {
+            this.elements.input.disabled = true;
         }
 
         this.elements.input.addEventListener('click', function() {
