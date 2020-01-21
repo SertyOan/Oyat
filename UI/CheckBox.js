@@ -28,18 +28,20 @@ var CheckBox = View.extend({
         }
 
         if (this.options.disabled) {
-            this.elements.input.disabled = true;
+            Helpers.Element.addClassName(this.elements.input, 'oyat-disabled');
         }
 
         this.elements.input.addEventListener('click', function() {
-            this.checked = !this.checked;
-            Helpers.Element.removeClassName(this.elements.input, 'oyat-checked');
+            if(this.options.disabled === false) {
+                this.checked = !this.checked;
+                Helpers.Element.removeClassName(this.elements.input, 'oyat-checked');
 
-            if(this.checked) {
-                Helpers.Element.addClassName(this.elements.input, 'oyat-checked');
+                if(this.checked) {
+                    Helpers.Element.addClassName(this.elements.input, 'oyat-checked');
+                }
+
+                this.emit(this.checked ? 'Check' : 'Uncheck');
             }
-
-            this.emit(this.checked ? 'Check' : 'Uncheck');
         }.bind(this));
 
         if (this.options.text) {

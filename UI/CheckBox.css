@@ -16,9 +16,20 @@
     width: 16px
 }
 
+
 .oyat-checkbox .oyat-input.oyat-checked {
     background: rgb(0, 83, 134);
     background-image: radial-gradient(circle, rgb(0, 83, 134), rgb(0, 83, 134) 50%, rgb(255, 255, 255) 60%)
+}
+
+.oyat-checkbox .oyat-input.oyat-disabled {
+    border-color: rgb(100, 100, 100);
+    background: rgb(220, 220, 220)
+}
+
+.oyat-checkbox .oyat-input.oyat-checked.oyat-disabled {
+    background: rgb(100, 100, 100);
+    background-image: radial-gradient(circle, rgb(100, 100, 100), rgb(100, 100, 100) 50%, rgb(220, 220, 220) 60%)
 }
 
 .oyat-checkbox .oyat-text {
