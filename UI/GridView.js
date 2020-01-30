@@ -76,15 +76,15 @@ var GridView = View.extend({
         }
 
         if (this.options.search) {
-            var element = this.elements.toolbar.appendChild(Helpers.Element.create('div', {
-                    className: 'oyat-search'
-                }))
-                .appendChild(Helpers.Element.create('input', {
-                    type: 'text',
-                    value: this.exports.search
-                }));
+            var searchBox = this.elements.toolbar.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-search'
+            }));
+            searchBox.appendChild(Helpers.Element.create('input', {
+                type: 'text',
+                value: this.exports.search
+            }));
 
-            element.addEventListener('keyup', function(event) {
+            searchField.addEventListener('keyup', function(event) {
                 if (event.keyCode == 13) {
                     this.exports.search = event.target.value;
                     this.reload();
@@ -92,7 +92,14 @@ var GridView = View.extend({
             }.bind(this));
 
             if (this.options.search.withButton) {
-                // TODO
+                var button = searchBox.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-search-button',
+                    text: 'Search'
+                }));
+                button.addEventListener('click', function(event) {
+                    this.exports.search = searchField.value;
+                    this.reload();
+                }.bind(this));
             }
         }
 
