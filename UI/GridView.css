@@ -40,8 +40,20 @@
     cursor: default
 }
 
+.oyat-gridview .oyat-header .oyat-cell {
+    border-bottom: 1px solid rgb(90, 90, 90)
+}
+
+.oyat-gridview .oyat-header .oyat-cell .oyat-sort {
+    display: inline-block;
+    color: rgb(90, 90, 90);
+    text-align: left;
+    padding: 4px 4px 4px 4px;
+    cursor: pointer
+}
+
 .oyat-gridview .oyat-header .oyat-cell .oyat-wrapper {
-    border-bottom: 1px solid rgb(90, 90, 90);
+    display: inline-block;
     color: rgb(90, 90, 90);
     text-align: left;
     padding: 4px 4px 4px 13px
