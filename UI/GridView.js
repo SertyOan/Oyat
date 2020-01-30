@@ -30,6 +30,11 @@ var GridView = View.extend({
             page: 1
         };
 
+        if(this.options.sort.by) {
+            this.exports.sortBy = this.options.sort.by;
+            this.exports.sortOrder = this.options.sort.order;
+        }
+
         this.addType('oyat-gridview');
         this.rowWidth = 0;
 
