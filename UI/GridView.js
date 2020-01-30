@@ -226,13 +226,20 @@ var GridView = View.extend({
                     className: 'oyat-sort',
                     html: '&#8593;&#8595;'
                 }));
-                sortNode.addEventListener('click', function(sortBy) {
+                sortNode.addEventListener('click', function(column) {
+                    if(this.exports.sortBy === column.sortBy) {
+                        this.exports.sortOrder = this.exports.sortOrder === 'ASC' ? 'DESC' : 'ASC';
+                    }
+                    else {
+                        this.exports.sortOrder = column.sortOrder && column.sortOrder === 'DESC' ? 'DESC' : 'ASC';
+                    }
+
                     this.exports.sortBy = sortBy;
                     this.reload();
-                }.bind(this, this.options.columns[i].sortBy));
+                }.bind(this, this.options.columns[i]));
 
-                if (this.options.columns[i].sortBy == this.options.sort.by) {
-                    Helpers.Element.addClassName(sortNode, 'oyat-' + this.options.sort.order);
+                if (this.options.columns[i].sortBy == this.exports.sortBy) {
+                    Helpers.Element.addClassName(sortNode, 'oyat-' + this.exports.sortOrder.toLowerCase());
                 }
             }
 
