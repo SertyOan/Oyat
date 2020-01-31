@@ -233,7 +233,7 @@ var GridView = View.extend({
                         this.exports.sortOrder = column.sortOrder && column.sortOrder === 'DESC' ? 'DESC' : 'ASC';
                     }
 
-                    this.exports.sortBy = columns.sortBy;
+                    this.exports.sortBy = column.sortBy;
                     this.reload();
                 }.bind(this, this.options.columns[i]));
 
