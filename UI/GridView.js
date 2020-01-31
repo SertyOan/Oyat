@@ -79,11 +79,10 @@ var GridView = View.extend({
             var searchBox = this.elements.toolbar.appendChild(Helpers.Element.create('div', {
                 className: 'oyat-search'
             }));
-            searchBox.appendChild(Helpers.Element.create('input', {
+            var searchField = searchBox.appendChild(Helpers.Element.create('input', {
                 type: 'text',
                 value: this.exports.search
             }));
-
             searchField.addEventListener('keyup', function(event) {
                 if (event.keyCode == 13) {
                     this.exports.search = event.target.value;
