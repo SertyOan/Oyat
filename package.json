@@ -1,6 +1,6 @@
 {
   "name": "oyat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "First beta",
   "main": "index.js",
   "scripts": {
@@ -16,8 +16,5 @@
     "url": "https://github.com/SertyOan/Oyat/issues"
   },
   "homepage": "https://github.com/SertyOan/Oyat#readme",
-  "keywords": [],
-  "devDependencies": {
-    "webpack": "^3.10.0"
-  }
+  "keywords": []
 }
