@@ -3,7 +3,8 @@
 }
 
 .oyat-gridview .oyat-body {
-    overflow: auto
+    overflow: auto;
+    display: grid
 }
 
 .oyat-gridview .oyat-cell.oyat-odd {

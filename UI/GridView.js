@@ -239,8 +239,7 @@ var GridView = View.extend({
                 var column = this.options.columns[j];
 
                 var cellElement = this.elements.body.appendChild(Helpers.Element.create('div', {
-                    className: 'oyat-cell ' + classes,
-                    style: 'width:' + column.width
+                    className: 'oyat-cell ' + classes
                 }));
 
                 if (column.formatter) {
