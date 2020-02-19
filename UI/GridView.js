@@ -214,7 +214,7 @@ var GridView = View.extend({
             }));
         }
 
-        Helpers.Element.setAttribute(this.elements.body, {
+        Helpers.Element.setAttributes(this.elements.body, {
             style: 'grid-template-columns: ' + gridTemplateColumns
         });
     },
