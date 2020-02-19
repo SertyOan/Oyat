@@ -175,7 +175,7 @@ var GridView = View.extend({
 
             this.elements.body.appendChild(Helpers.Element.create('div', {
                 className: 'oyat-cell oyat-header',
-                html: '<div class="oyat-wrapper">&nbsp;</div>'
+                html: '<div class="oyat-wrapper">#</div>'
             }));
         }
 
