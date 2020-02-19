@@ -221,12 +221,16 @@ var GridView = View.extend({
     __updateRows: function() {
         for (var i = 0, c = this.store.rows.length; i < c; i++) {
             var row = this.store.rows[i];
-            var parity = i % 2 === 0 ? 'oyat-even' : 'oyat-odd';
+            var classes = i % 2 === 0 ? 'oyat-even' : 'oyat-odd';
+
+            if (this.options.rowStyler) {
+                classes += ' ' + this.options.rowStyler(row);
+            }
 
             if (this.options.showLineNumber) {
                 var lineNumber = this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1;
                 var cellElement = this.elements.body.appendChild(Helpers.Element.create('div', {
-                    className: 'oyat-cell oyat-number ' + parity,
+                    className: 'oyat-cell oyat-number ' + classes,
                     html: '<div class="oyat-wrapper">' + lineNumber + '</div>'
                 }));
             }
@@ -234,12 +238,8 @@ var GridView = View.extend({
             for (var j = 0, d = this.options.columns.length; j < d; j++) {
                 var column = this.options.columns[j];
 
-                if (this.options.rowStyler) {
-                    Helpers.Element.addClassName(cell, this.options.rowStyler(row));
-                }
-
                 var cellElement = this.elements.body.appendChild(Helpers.Element.create('div', {
-                    className: 'oyat-cell ' + parity,
+                    className: 'oyat-cell ' + classes,
                     style: 'width:' + column.width
                 }));
 
