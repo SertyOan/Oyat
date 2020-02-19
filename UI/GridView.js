@@ -36,12 +36,6 @@ var GridView = View.extend({
         }
 
         this.addType('oyat-gridview');
-        this.rowWidth = 0;
-
-        window.addEventListener('resize', function() {
-            this.rowWidth = 0;
-            this.refresh();
-        }.bind(this));
     },
     setStore: function(rows, options) {
         // NOTE store = { rows: [row, row...], page: #, records: # }
@@ -174,40 +168,11 @@ var GridView = View.extend({
             }.bind(this));
     },
     __updateHeaders: function() {
-        this.elements.header = this.elements.body.appendChild(Helpers.Element.create('div', {
-            className: 'oyat-header'
-        }));
-
-        if (this.rowWidth == 0) {
-            var gridWidth = this.elements.root.offsetWidth;
-
-            if (this.options.showLineNumber) {
-                this.rowWidth += 40;
-                gridWidth -= 40;
-            }
-
-            for (var i = 0, l = this.options.columns.length; i < l; i++) {
-                var column = this.options.columns[i];
-
-                switch (typeof column.width) {
-                    case 'number':
-                        column.computedWidth = column.width;
-                        break;
-                    case 'string':
-                        column.computedWidth = (column.width.match(/%/) ? parseInt(column.width, 10) * gridWidth / 100 : parseInt(column.width, 10));
-                        break;
-                    default:
-                        column.computedWidth = 100;
-                }
-
-                this.rowWidth += column.computedWidth;
-            }
-        }
+        var gridTemplateColumns = 'auto';
 
         if (this.options.showLineNumber) {
-            this.elements.header.appendChild(Helpers.Element.create('div', {
+            this.elements.body.appendChild(Helpers.Element.create('div', {
                 className: 'oyat-cell',
-                style: 'width:40px', // TODO resize
                 html: '<div class="oyat-wrapper">&nbsp;</div>'
             }));
         }
@@ -215,9 +180,10 @@ var GridView = View.extend({
         for (var i = 0, l = this.options.columns.length; i < l; i++) {
             var column = this.options.columns[i];
 
-            var cell = this.elements.header.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-cell',
-                style: 'width:' + column.computedWidth + 'px'
+            gridTemplateColumns += ' ' + column.width;
+
+            var cell = this.elements.body.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-cell oyat-header'
             }));
 
             if (this.options.columns[i].sortBy) {
@@ -248,42 +214,33 @@ var GridView = View.extend({
             }));
         }
 
-        this.elements.header.style.width = this.rowWidth + 'px';
+        Helpers.Element.setAttribute(this.elements.body, {
+            style: 'grid-template-columns: ' + gridTemplateColumns
+        });
     },
     __updateRows: function() {
-        this.elements.rows = this.elements.body.appendChild(Helpers.Element.create('div', {
-            className: 'oyat-rows'
-        }));
-
         for (var i = 0, c = this.store.rows.length; i < c; i++) {
             var row = this.store.rows[i];
-            var rowElement = this.elements.rows.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-row ' + (i % 2 === 0 ? 'oyat-even' : 'oyat-odd')
-            }));
-
-            rowElement.addEventListener('click', this.emit.bind(this, 'RowSelect', {
-                row: i,
-                record: row
-            }));
+            var parity = i % 2 === 0 ? 'oyat-even' : 'oyat-odd';
 
             if (this.options.showLineNumber) {
-                var cellElement = rowElement.appendChild(Helpers.Element.create('div', {
-                    className: 'oyat-cell oyat-number',
-                    style: 'width:40px',
-                    html: '<div class="oyat-wrapper">' + (this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1) + '</div>'
+                var lineNumber = this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1;
+                var cellElement = this.elements.body.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-cell oyat-number ' + parity,
+                    html: '<div class="oyat-wrapper">' + lineNumber + '</div>'
                 }));
-            }
-
-            if (this.options.rowStyler) {
-                Helpers.Element.addClassName(rowElement, this.options.rowStyler(row));
             }
 
             for (var j = 0, d = this.options.columns.length; j < d; j++) {
                 var column = this.options.columns[j];
 
-                var cellElement = rowElement.appendChild(Helpers.Element.create('div', {
-                    className: 'oyat-cell ' + (j % 2 === 0 ? 'oyat-even' : 'oyat-odd'),
-                    style: 'width:' + column.computedWidth + 'px',
+                if (this.options.rowStyler) {
+                    Helpers.Element.addClassName(cell, this.options.rowStyler(row));
+                }
+
+                var cellElement = this.elements.body.appendChild(Helpers.Element.create('div', {
+                    className: 'oyat-cell ' + parity,
+                    style: 'width:' + column.width
                 }));
 
                 if (column.formatter) {
@@ -300,9 +257,12 @@ var GridView = View.extend({
                     column: j,
                     record: row
                 }));
-            }
 
-            rowElement.style.width = this.rowWidth + 'px';
+                cellElement.addEventListener('click', this.emit.bind(this, 'RowSelect', {
+                    row: i,
+                    record: row
+                }));
+            }
         }
     },
     reload: function() {
