@@ -168,11 +168,13 @@ var GridView = View.extend({
             }.bind(this));
     },
     __updateHeaders: function() {
-        var gridTemplateColumns = 'auto';
+        var gridTemplateColumns = '';
 
         if (this.options.showLineNumber) {
+            gridTemplateColumns += ' auto';
+
             this.elements.body.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-cell',
+                className: 'oyat-cell oyat-header',
                 html: '<div class="oyat-wrapper">&nbsp;</div>'
             }));
         }
