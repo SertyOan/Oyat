@@ -51,11 +51,13 @@
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-search {
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     margin: 3px;
     padding: 3px;
     height: 24px;
     overflow: hidden;
+    border-radius: 6px 0;
     border: 1px solid rgb(0, 83, 134);
     background: rgb(255, 255, 255)
 }
@@ -66,30 +68,37 @@
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-legend {
-    float: left;
+    display: inline-block;
+    user-select: none;
+    vertical-align: top;
     margin: 3px;
     padding: 3px
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager {
     height: 24px;
-    overflow: hidden
+    overflow: hidden;
+    vertical-align: top;
+    margin: 3px;
+    display: inline-grid
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager .oyat-arrow {
-    float: left;
-    width: 12px;
     margin: 3px;
+    padding: 3px;
     text-align: center;
     font-weight: bold;
+    background: rgb(255, 255, 255);
+    border-radius: 6px 0;
+    color: rgb(0, 83, 134);
     cursor: pointer
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager .oyat-arrow:hover {
-    color: rgb(0, 83, 134)
+    border-color: rgb(91, 157, 191);
+    color: rgb(91, 157, 191)
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager .oyat-page {
-    float: left;
-    margin: 5px
+    user-select: none
 }
