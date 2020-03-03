@@ -80,15 +80,19 @@
     overflow: hidden;
     vertical-align: top;
     margin: 3px;
-    display: inline-grid
+    display: inline-grid;
+    grid-gap: 3px;
+    grid-template-columns: 30px 30px auto 30px 30px
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager .oyat-arrow {
-    margin: 3px;
     padding: 3px;
+    height: 24px;
+    line-height: 18px;
     text-align: center;
     font-weight: bold;
     background: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 83, 134);
     border-radius: 6px 0;
     color: rgb(0, 83, 134);
     cursor: pointer
@@ -100,5 +104,8 @@
 }
 
 .oyat-gridview>.oyat-toolbar .oyat-pager .oyat-page {
+    padding: 3px 9px;
+    height: 24px;
+    line-height: 18px;
     user-select: none
 }
