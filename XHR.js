@@ -90,7 +90,7 @@ XHR.callBasic = function(url, options) {
             }
         }
 
-        var body = options.method === 'POST' ? options.postBody || parameters : null;
+        var body = options.method === 'POST' || options.method === 'PUT' ? options.postBody || parameters : null;
         transport.send(body);
     } catch (e) {
         options.onException(e);
