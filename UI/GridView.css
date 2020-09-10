@@ -8,7 +8,7 @@
 }
 
 .oyat-gridview .oyat-body .oyat-row {
-    display: grid-row
+    display: contents
 }
 
 .oyat-gridview .oyat-cell.oyat-odd {
@@ -19,7 +19,7 @@
     background: #FAFAFA
 }
 
-.oyat-gridview .oyat-cell:hover {
+.oyat-gridview .oyat-body .oyat-row:hover .oyat-cell {
     cursor: pointer;
     background: #E0E0E0
 }
