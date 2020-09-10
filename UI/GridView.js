@@ -10,7 +10,7 @@ var GridView = View.extend({
             paging: false, // OR integer
             offset: 0,
             scrolling: false, // OR true
-            search: false, // OR { label: null, value: null }
+            search: false, // OR { withButton: false|true, label: null, value: null }
             refresh: false, // OR true
             itemsCount: false, // OR { legend: null }
             showLineNumber: false, // OR true
@@ -222,6 +222,9 @@ var GridView = View.extend({
     },
     __updateRows: function() {
         for (var i = 0, c = this.store.rows.length; i < c; i++) {
+            var rowElement = this.elements.body.appendChild(Helpers.Element.create('div', {
+                className: 'oyat-row'
+            }));
             var row = this.store.rows[i];
             var classes = i % 2 === 0 ? 'oyat-even' : 'oyat-odd';
 
@@ -231,7 +234,7 @@ var GridView = View.extend({
 
             if (this.options.showLineNumber) {
                 var lineNumber = this.options.usePagination ? (this.store.page - 1) * this.store.rowsPerPage + i + 1 : i + 1;
-                var cellElement = this.elements.body.appendChild(Helpers.Element.create('div', {
+                var cellElement = rowElement.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-cell oyat-number ' + classes,
                     html: '<div class="oyat-wrapper">' + lineNumber + '</div>'
                 }));
@@ -240,7 +243,7 @@ var GridView = View.extend({
             for (var j = 0, d = this.options.columns.length; j < d; j++) {
                 var column = this.options.columns[j];
 
-                var cellElement = this.elements.body.appendChild(Helpers.Element.create('div', {
+                var cellElement = rowElement.appendChild(Helpers.Element.create('div', {
                     className: 'oyat-cell ' + classes
                 }));
 

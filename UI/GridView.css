@@ -7,6 +7,10 @@
     display: grid
 }
 
+.oyat-gridview .oyat-body .oyat-row {
+    display: grid-row
+}
+
 .oyat-gridview .oyat-cell.oyat-odd {
     background: #F3F3F3
 }
