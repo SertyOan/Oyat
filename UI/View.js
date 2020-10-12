@@ -67,21 +67,23 @@ var View = Observable.extend({
             throw new Error('Cannot remove a view which is not a child in Oyat/UI/View.remove');
         }
 
-        if (view.isRendered) {
-            view.elements.root.parentNode.removeChild(view.elements.root);
-            view.isRendered = false;
-        }
+        view.dispose();
 
         return this.children.splice(index, 1);
     },
-    clear: function() { // TODO ensure to call remove
+    clear: function() {
         for (var i = 0, c = this.children.length; i < c; i++) {
             var view = this.children[i];
-            view.elements.root.parentNode.removeChild(view.elements.root);
-            view.isRendered = false;
+            this.remove(view);
+        }
+    },
+    dispose: function() {
+        if (this.isRendered) {
+            this.elements.root.parentNode.removeChild(this.elements.root);
+            this.isRendered = false;
         }
 
-        this.children = [];
+        this.emit('Dispose');
     },
     addType: function(type) {
         Helpers.Element.addClassName(this.elements.root, type);
