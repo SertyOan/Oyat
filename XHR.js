@@ -77,10 +77,10 @@ XHR.callBasic = function(url, options) {
         };
 
         if (options.method === 'POST' && !options.headers['Content-Type']) { // TODO check case insensitive
-            options.headers['Content-type'] = this.options.contentType;
+            options.headers['Content-type'] = options.contentType;
 
-            if(this.options.encoding) {
-                options.headers['Content-type'] += '; charset=' + this.options.encoding;
+            if(options.encoding) {
+                options.headers['Content-type'] += '; charset=' + options.encoding;
             }
         }
 
