@@ -42,7 +42,7 @@ XHR.callBasic = function(url, options) {
         }
 
         if (options.method === 'GET') {
-            url += (url.match(/\?/) === null ? '?' : '&') + parameters;
+            url += (url.match(/\?/) === null ? '?' : '&') + options.parameters;
         }
     }
 
@@ -90,7 +90,7 @@ XHR.callBasic = function(url, options) {
             }
         }
 
-        var body = options.method === 'POST' || options.method === 'PUT' ? options.postBody || parameters : null;
+        var body = options.method === 'POST' || options.method === 'PUT' || options.method === 'PATCH' ? options.postBody || options.parameters : null;
         transport.send(body);
     } catch (e) {
         options.onException(e);
