@@ -72,10 +72,9 @@ var View = Observable.extend({
         return this.children.splice(index, 1);
     },
     clear: function() {
-        for (var i = 0, c = this.children.length; i < c; i++) {
-            var view = this.children[i];
+        this.children.forEach(function(view) {
             this.remove(view);
-        }
+        }.bind(this));
     },
     dispose: function() {
         if (this.isRendered) {
