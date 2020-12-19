@@ -1,6 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
-import style from './Button.css';
+import './Button.css';
 
 var Button = View.extend({
     __construct: function(options) {
