@@ -1,5 +1,6 @@
 import Observable from '../Observable.js';
 import Helpers from '../Helpers.js';
+import './root.css';
 
 var View = Observable.extend({
     __construct: function(options) {

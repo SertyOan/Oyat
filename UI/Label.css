@@ -1,6 +1,6 @@
 .oyat-label {
-    margin: 3px;
-    padding: 3px;
-    line-height: 16px;
+    margin: var(--oyat-margin);
+    padding: var(--oyat-padding);
+    line-height: var(--oyat-line-height);
     overflow: hidden
 }

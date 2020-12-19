@@ -1,0 +1,9 @@
+:root {
+    --oyat-margin: 5px;
+    --oyat-padding: 5px;
+    --oyat-background-color: rgba(255, 255, 255, 1);
+    --oyat-border-color: rgba(0, 86, 134, 1);
+    --oyat-border-radius: 3px;
+    --oyat-active-color: rgba(0, 86, 134, 1);
+    --oyat-line-height: 16px;
+}

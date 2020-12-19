@@ -14,8 +14,8 @@
 .oyat-customHTML SELECT,
 .oyat-customHTML INPUT,
 .oyat-customHTML TEXTAREA {
-    border: 1px solid rgb(0, 0, 0);
-    margin: 3px;
+    border: 1px solid var(--oyat-border-color);
+    margin: var(--oyat-default-margin);
     color: rgb(0, 0, 0);
     background: rgb(255, 255, 255)
 }
@@ -31,7 +31,7 @@
 
 .oyat-customHTML TH,
 .oyat-customHTML TD {
-    padding: 3px
+    padding: var(--oyat-default-padding)
 }
 
 .oyat-close {
