@@ -41,6 +41,7 @@ var CheckBox = View.extend({
                 }
 
                 this.emit(this.checked ? 'Check' : 'Uncheck');
+                this.emit('Change');
             }
         }.bind(this));
 
