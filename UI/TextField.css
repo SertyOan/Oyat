@@ -10,4 +10,5 @@
     padding: var(--oyat-padding);
     width: 100%;
     line-height: var(--oyat-line-height);
+    height: calc(var(--oyat-line-height) + 2* var(--oyat-padding));
 }
