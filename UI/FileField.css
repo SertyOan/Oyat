@@ -2,8 +2,11 @@
     position: relative;
     margin: var(--oyat-margin);
     border: 1px solid var(--oyat-border-color);
+    border-radius: var(--oyat-border-radius);
     background: var(--oyat-background-color);
     overflow: hidden;
+    height: 28px;
+    width: 200px;
 }
 
 .oyat-filefield INPUT {
@@ -11,7 +14,7 @@
     top: 0;
     right: 0;
     z-index: 10;
-    font-size: 200px;
+    font-size: 2000px;
     opacity: 0;
     cursor: pointer
 }
@@ -22,7 +25,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    color: rgb(0, 83, 134);
     text-align: center;
     padding: var(--oyat-padding);
     color: var(--oyat-active-color);
