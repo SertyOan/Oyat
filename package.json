@@ -1,11 +1,8 @@
 {
   "name": "oyat",
-  "version": "0.3.0",
-  "description": "First beta",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.3.1",
+  "description": "JavaScript libraries",
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SertyOan/Oyat.git"
