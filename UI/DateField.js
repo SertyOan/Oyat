@@ -1,5 +1,6 @@
 import View from '../UI/View.js';
 import Helpers from '../Helpers.js';
+import Calendar from './Calendar.js';
 import './DateField.css';
 
 var DateField = View.extend({
