@@ -19,9 +19,6 @@ var DateField = View.extend({
         this.elements.field = this.elements.root.appendChild(Helpers.Element.create('div', {
             className: 'oyat-field'
         }));
-        this.elements.field.appendChild(Helpers.Element.create('div', {
-            className: 'oyat-icon'
-        }));
 
         this.elements.input = this.elements.field.appendChild(Helpers.Element.create('div', {
                 className: 'oyat-input'
@@ -31,6 +28,11 @@ var DateField = View.extend({
                 readOnly: true,
                 value: (this.options.defaultValue ? this.options.defaultValue : '')
             }));
+
+        this.elements.root.appendChild(Helpers.Element.create('div', {
+            className: 'oyat-datefield-button'
+            html: '&#x1F4C5;'
+        }));
 
         this.elements.root.removeEventListener('click', this.handlers.click);
 

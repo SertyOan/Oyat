@@ -1,35 +1,25 @@
 .oyat-datefield {
-    overflow: auto;
-    height: 22px;
-    margin: 5px
+    overflow: hidden;
+    display: flex;
+    margin: var(--oyat-margin);
+    border: 1px solid var(--oyat-border-color);
 }
 
 .oyat-datefield .oyat-field {
-    overflow: auto;
-    height: 18px;
-    border: 1px solid rgb(90, 90, 90);
-    background: rgb(255, 255, 255);
-    margin: 1px
-}
-
-.oyat-datefield .oyat-input {
-    overflow: auto;
-    border: 0px;
-    height: 12px;
-    padding: 3px;
-    background: rgb(255, 255, 255)
+    background: var(--oyat-background-color);
 }
 
 .oyat-datefield .oyat-input INPUT {
-    width: 100%;
-    height: 12px
+    border: 0;
+    flex: 1;
+    padding: var(--oyat-padding);
+    line-height: var(--oyat-line-height);
+    height: calc(var(--oyat-line-height) + 2* var(--oyat-padding));
 }
 
-.oyat-datefield .oyat-button {
-    float: right;
-    height: 18px;
-    width: 18px;
+.oyat-datefield-button {
+    padding: 0;
     cursor: pointer;
-    border-left: 1px solid rgb(90, 90, 90);
-    background: rgb(90, 90, 90) url(calendar.gif) 1px 0px no-repeat
+    text-align: center;
+    border-left: 1px solid var(--oyat-border-color);
 }
