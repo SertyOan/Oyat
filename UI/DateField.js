@@ -30,7 +30,7 @@ var DateField = View.extend({
             }));
 
         this.elements.root.appendChild(Helpers.Element.create('div', {
-            className: 'oyat-datefield-button'
+            className: 'oyat-datefield-button',
             html: '&#x1F4C5;'
         }));
 
