@@ -1,8 +1,10 @@
 .oyat-datefield {
-    overflow: hidden;
-    display: flex;
     margin: var(--oyat-margin);
     border: 1px solid var(--oyat-border-color);
+    background: var(--oyat-background-color);
+    border-radius: var(--oyat-border-radius);
+    display: flex;
+    overflow: hidden;
 }
 
 .oyat-datefield .oyat-field {

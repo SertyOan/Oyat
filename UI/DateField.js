@@ -29,7 +29,7 @@ var DateField = View.extend({
                 value: (this.options.defaultValue ? this.options.defaultValue : '')
             }));
 
-        this.elements.root.appendChild(Helpers.Element.create('div', {
+        this.elements.button = this.elements.root.appendChild(Helpers.Element.create('div', {
             className: 'oyat-datefield-button',
             html: '&#x1F4C5;'
         }));
@@ -41,7 +41,9 @@ var DateField = View.extend({
                 this.showCalendar(event);
             }
         }.bind(this);
+
         this.elements.field.addEventListener('click', this.handlers.click);
+        this.elements.button.addEventListener('click', this.handlers.click);
 
         this.calendar = new Calendar();
         this.calendar.render();
