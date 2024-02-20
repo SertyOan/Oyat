@@ -6,7 +6,7 @@
 
 .oyat-calendar .oyat-calendarTop,
 .oyat-calendar .oyat-calendarArrows,
-.oyat-calendar .oyat-calendarDays {
+.oyat-calendar .oyat-days {
     width: 140px;
     height: 18px;
     border-bottom: 1px solid black;
@@ -14,7 +14,7 @@
     cursor: default
 }
 
-.oyat-calendar .oyat-calendarDays DIV {
+.oyat-calendar .oyat-days DIV {
     text-align: center
 }
 
@@ -53,19 +53,19 @@
     color: rgb(255, 255, 255)
 }
 
-.oyat-calendar .oyat-calendarDays DIV {
+.oyat-calendar .oyat-days DIV {
     float: left;
     width: 20px;
     height: 18px;
     overflow: hidden
 }
 
-.oyat-calendar .oyat-calendarBoxes {
+.oyat-calendar .oyat-boxes {
     width: 140px;
     overflow: auto
 }
 
-.oyat-calendar .oyat-calendarBoxes DIV {
+.oyat-calendar .oyat-boxes DIV {
     float: left;
     width: 20px;
     padding: 4px 0px;
@@ -74,7 +74,7 @@
     text-align: center
 }
 
-.oyat-calendar .oyat-calendarBoxes DIV.oyat-calendarClickable:hover {
+.oyat-calendar .oyat-boxes DIV.oyat-clickable:hover {
     background: rgb(90, 90, 90);
     color: rgb(255, 255, 255);
     cursor: pointer
