@@ -1,80 +1,58 @@
 .oyat-calendar {
-    width: 140px;
-    border: 1px solid black;
-    background: rgb(90, 90, 90)
+    margin: var(--oyat-margin);
+    border: 1px solid var(--oyat-border-color);
+    background: var(--oyat-background-color);
+    border-radius: var(--oyat-border-radius);
+    width: 200px;
 }
 
-.oyat-calendar .oyat-calendarTop,
-.oyat-calendar .oyat-calendarArrows,
+.oyat-calendar .oyat-year,
+.oyat-calendar .oyat-month,
 .oyat-calendar .oyat-days {
-    width: 140px;
-    height: 18px;
+    width: 200px;
+    line-height: 20px;
     border-bottom: 1px solid black;
     overflow: auto;
     cursor: default
 }
 
-.oyat-calendar .oyat-days DIV {
-    text-align: center
-}
-
-.oyat-calendar .oyat-calendarTitle {
-    float: left;
-    width: 115px;
-    padding: 1px 2px 2px;
-    font-weight: bold;
-    height: 15px;
-    border-right: 1px solid black;
-    background: rgb(90, 90, 90);
-    color: rgb(255, 255, 255)
-}
-
-.oyat-calendar .oyat-calendarClose {
-    float: left;
-    width: 20px;
-    height: 18px;
-    cursor: pointer
-}
-
-.oyat-calendar .oyat-calendarClose:hover {
-    background: #707070
-}
-
-.oyat-calendar .oyat-calendarArrows DIV {
-    float: left;
-    width: 35px;
-    height: 18px;
+.oyat-calendar .oyat-text {
+    flex: 1;
     text-align: center;
-    cursor: pointer
 }
 
-.oyat-calendar .oyat-calendarArrows DIV:hover {
-    background: #707070;
-    color: rgb(255, 255, 255)
+.oyat-calendar .oyat-year,
+.oyat-calendar .oyat-month {
+    display: flex;
+}
+
+.oyat-calendar .oyat-previous,
+.oyat-calendar .oyat-next {
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.oyat-calendar .oyat-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .oyat-calendar .oyat-days DIV {
-    float: left;
-    width: 20px;
-    height: 18px;
-    overflow: hidden
+    text-align: center;
 }
 
 .oyat-calendar .oyat-boxes {
-    width: 140px;
-    overflow: auto
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 }
 
 .oyat-calendar .oyat-boxes DIV {
-    float: left;
-    width: 20px;
-    padding: 4px 0px;
-    height: 12px;
-    line-height: 12px;
+    line-height: 20px;
     text-align: center
 }
 
-.oyat-calendar .oyat-boxes DIV.oyat-clickable:hover {
+.oyat-calendar .oyat-clickable:hover {
     background: rgb(90, 90, 90);
     color: rgb(255, 255, 255);
     cursor: pointer

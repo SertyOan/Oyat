@@ -13,7 +13,7 @@ var Calendar = View.extend({
             className: 'oyat-year'
         }));
         node.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-previous',
+                className: 'oyat-previous oyat-clickable',
                 text: '<'
             }))
             .addEventListener('click', this.updateBy.bind(this, {
@@ -24,7 +24,7 @@ var Calendar = View.extend({
             className: 'oyat-text'
         }));
         node.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-next',
+                className: 'oyat-next oyat-clickable',
                 text: '>'
             }))
             .addEventListener('click', this.updateBy.bind(this, {
@@ -36,7 +36,7 @@ var Calendar = View.extend({
             className: 'oyat-month'
         }));
         node.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-previous',
+                className: 'oyat-previous oyat-clickable',
                 text: '<'
             }))
             .addEventListener('click', this.updateBy.bind(this, {
@@ -47,7 +47,7 @@ var Calendar = View.extend({
             className: 'oyat-text'
         }));
         node.appendChild(Helpers.Element.create('div', {
-                className: 'oyat-next',
+                className: 'oyat-next oyat-clickable',
                 text: '>'
             }))
             .addEventListener('click', this.updateBy.bind(this, {

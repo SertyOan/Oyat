@@ -5,15 +5,16 @@
     border-radius: var(--oyat-border-radius);
     display: flex;
     overflow: hidden;
+    user-select: none;
 }
 
 .oyat-datefield .oyat-field {
     background: var(--oyat-background-color);
+    flex: 1;
 }
 
 .oyat-datefield .oyat-input INPUT {
     border: 0;
-    flex: 1;
     padding: var(--oyat-padding);
     line-height: var(--oyat-line-height);
     height: calc(var(--oyat-line-height) + 2* var(--oyat-padding));
@@ -21,7 +22,17 @@
 
 .oyat-datefield-button {
     padding: 0;
+    width: 26px;
+    line-height: 26px;
     cursor: pointer;
     text-align: center;
     border-left: 1px solid var(--oyat-border-color);
+}
+
+.oyat-datefield .oyat-calendar {
+    position: absolute;
+    top: 27px;
+    left: var(--oyat-margin);
+    z-index: 10;
+    margin: 0;
 }
